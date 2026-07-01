@@ -1,0 +1,14 @@
+---
+title: RID Spans Setup
+description: Limit the range of RID numbers an OM Plus server uses across the enterprise.
+---
+
+See the section on R3/SAP Interface for more information about this feature.
+
+<Image src="https://blob-cdn.documentation.ai/org-852a81c4-9351-4db1-9f23-cefe8e32d308/doc-fa73ad80-2a40-40e1-98c5-3d2641c178de/1782900133176-hiyh4fhgvp7-rid-span-maintenance.png?fm=auto&auto=compress%2Cformat" alt="RID Span Maintenance window for defining per-host RID ranges" width="534" height="341" />
+
+The RID spans system is used to limit the range of RID numbers that a particular OM Plus server will use. When multiple servers are to be set up to use this system, one of the OM Plus servers must be designated the span host. This is done by putting that host's own name in the Span Host field.
+
+Add a line containing host, starting RID, and ending RID for each OM Plus server in the enterprise. Starting RIDs must be larger than ending RIDs. Ranges cannot overlap. The minimum range is 500, but it is highly recommended that the range be greater than the maximum number of requests allowed on that system (see System Defaults).
+
+The system that is the Span Host is the only system that needs to be set up using this utility. Periodically the Span Host will publish the current file to all of the systems listed. If a server that is not the Span Host is updated, the changes will be lost as soon as the real Span Host publishes its list.

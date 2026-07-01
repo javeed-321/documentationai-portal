@@ -15,9 +15,9 @@
     }
   },
   "navigation": {
-    "tabs": [
+    "products": [
       {
-        "tab": "OM Plus DM",
+        "product": "OM Plus DM",
         "icon": "printer",
         "groups": [
           {
@@ -68,6 +68,11 @@
                 "icon": "settings"
               },
               {
+                "title": "Dynamic Class Maintenance",
+                "path": "docs/destinations/dynamic-class-maintenance",
+                "icon": "shuffle"
+              },
+              {
                 "title": "Group Maintenance",
                 "path": "docs/destinations/group-maintenance",
                 "icon": "users"
@@ -109,9 +114,24 @@
                 "icon": "settings"
               },
               {
-                "title": "Hosts & Registration",
-                "path": "docs/system/hosts-registration",
+                "title": "Health Check (UNIX only)",
+                "path": "docs/system/health-check",
+                "icon": "activity"
+              },
+              {
+                "title": "Working With Remote Host Setup",
+                "path": "docs/system/remote-host-setup",
                 "icon": "network"
+              },
+              {
+                "title": "Registration Status",
+                "path": "docs/system/registration-status",
+                "icon": "badge-check"
+              },
+              {
+                "title": "RID Spans Setup",
+                "path": "docs/system/rid-spans-setup",
+                "icon": "hash"
               },
               {
                 "title": "System Settings",
@@ -141,24 +161,49 @@
             "icon": "shield",
             "pages": [
               {
-                "title": "Security Overview",
-                "path": "docs/security/overview",
+                "title": "Using Security Groups",
+                "path": "docs/security/using-security-groups",
                 "icon": "shield"
               },
               {
-                "title": "Permission Models",
-                "path": "docs/security/permission-models",
+                "title": "Setting up Permission Models",
+                "path": "docs/security/setting-up-permission-models",
                 "icon": "sliders"
               },
               {
-                "title": "Security Groups",
-                "path": "docs/security/security-groups",
+                "title": "Creating Security Groups",
+                "path": "docs/security/creating-security-groups",
                 "icon": "users"
               },
               {
-                "title": "Users & Remote Logins",
-                "path": "docs/security/users-logins",
+                "title": "Adding Users to Groups",
+                "path": "docs/security/adding-users-to-groups",
                 "icon": "user-plus"
+              },
+              {
+                "title": "Adding Remote Users (Host/Domain)",
+                "path": "docs/security/adding-remote-users",
+                "icon": "user-check"
+              },
+              {
+                "title": "User List",
+                "path": "docs/security/user-list",
+                "icon": "list"
+              },
+              {
+                "title": "Adding Login Users",
+                "path": "docs/security/adding-login-users",
+                "icon": "log-in"
+              },
+              {
+                "title": "Security in Distributed Environments",
+                "path": "docs/security/security-in-distributed-environments",
+                "icon": "network"
+              },
+              {
+                "title": "OM Plus Status screen",
+                "path": "docs/security/om-plus-status-screen",
+                "icon": "activity"
               }
             ]
           }

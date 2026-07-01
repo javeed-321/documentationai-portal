@@ -1,33 +1,7 @@
 ---
-title: Users & Remote Logins
-description: Add local users and map remote host/domain logins to OM Plus users.
+title: Adding Remote Users (Host/Domain)
+description: Resolve remote spool and command requests to a local OM Plus user.
 ---
-
-Local, remote, and login users can all be added to a security group, but local users must be added first. Once a user is part of the security system, they can only access the destinations assigned to their group and only perform the functions defined in the permissions model applied to those destinations. This page explains how to add local users to a group and how to resolve remote spool and command requests to a local OM Plus user. For the group and permissions concepts these users build on, see [Security Groups](/om-plus-dm/security/security-groups).
-
-## Adding Users to Groups
-
-A user can only be in one security group at a time, but a group can consist of one or many users. OM Plus uses the name entered. In UNIX, the name should match the login user ID on the host on which OM Plus is installed.
-
-<Image src="https://blob-cdn.documentation.ai/org-852a81c4-9351-4db1-9f23-cefe8e32d308/doc-30784c0c-2ed6-4bd0-bbc6-7a68250c1725/1782902219777-9a4r4akr08e-security-groups-users.png?fm=auto&auto=compress%2Cformat" alt="Security Groups window (Printer Admin) used when adding users to a group" width="484" height="491" />
-
-To add local users to a group, complete these steps:
-
-<Steps>
-  <Step title="Open the Security Maintenance Groups screen" icon="window">
-    Navigate to the OM Plus Security Maintenance Groups screen.
-  </Step>
-  <Step title="Add User" icon="user-plus">
-    Click Add User.
-  </Step>
-  <Step title="Enter a user name" icon="keyboard">
-    In the Enter User Name field, enter a new user name. The user appears in the list for this group.
-  </Step>
-</Steps>
-
-<Callout kind="info">Users cannot be added to the group "guest" as this is the default group for any unresolved users.</Callout>
-
-## Adding Remote Users (Host/Domain)
 
 When a spool request comes in from another host system, either via LPD or a linked Windows printer, OM Plus will attempt to resolve a "local" user name so that it can apply security measures. Remote users are how this is done. If a request comes in and a local user is not resolved, the request will get whatever the permissions the "guest" security group has.
 

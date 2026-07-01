@@ -1,0 +1,19 @@
+---
+title: Adding Login Users
+description: Associate a user name and password with a local user ID for the web interface.
+---
+
+The Logins screen makes it possible to set up the user name and password to associate with a specific local user ID. This is primarily used for the web interface. If OM Plus recognizes the user name and password upon login, it uses the local user to which it is associated and not the remote ID.
+
+<Steps>
+  <Step title="Add a login user" icon="user-plus">
+    From the OM Plus Security Users screen select Add to add a login user. The Add Login User screen appears.
+
+    <Image src="https://blob-cdn.documentation.ai/org-852a81c4-9351-4db1-9f23-cefe8e32d308/doc-30784c0c-2ed6-4bd0-bbc6-7a68250c1725/1782908243960-7ptd8tvguvi-add-login-user.png?fm=auto&auto=compress%2Cformat" width="262" height="251" alt="New Login dialog with User ID, Resolved User, Password, and Confirm Password fields" />
+  </Step>
+  <Step title="Enter the login details" icon="keyboard">
+    In the available fields, enter the login user name, the resolved user name, password, and then click OK.
+  </Step>
+</Steps>
+
+When a user submits a job, OM Plus checks the user ID that is associated with the request and verifies that the user has permissions to the destination and to the options they selected. If they do, the request proceeds normally. If they do not, OM Plus rejects the request.

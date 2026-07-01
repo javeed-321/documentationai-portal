@@ -1,6 +1,6 @@
 ---
-title: Security Overview
-description: How OM Plus security works, and the order to set it up.
+title: Using Security Groups
+description: How OM Plus security works, and the order in which to set it up.
 ---
 
 With so much functionality and ease of access with printing reports, security in OM Plus becomes more of an issue than with standard Windows spooling or UNIX `lp` systems.
@@ -23,7 +23,7 @@ For information on the applications and their functions, refer to the following 
 | Models | Displays the name of the model and the permission levels to which it is associated. |
 | User List | Displays the local users and the group to which they are assigned. |
 
-## Using Security Groups
+## Setting Up Security Groups
 
 Group Maintenance is used to group the OM Plus users that have common destination and access needs. A permissions model is applied to each destination.
 
@@ -31,21 +31,21 @@ To set up security groups, complete these tasks in the order they appear.
 
 <Steps>
   <Step title="Set up permission models" icon="shield">
-    Configure the [permission models](/om-plus-dm/security/permission-models) that define the functions users can perform.
+    Configure the [permission models](/docs/security/setting-up-permission-models) that define the functions users can perform.
   </Step>
   <Step title="Create new security groups" icon="users">
-    Create the [security groups](/om-plus-dm/security/security-groups) that group users with common destination and access needs.
+    Create the [security groups](/docs/security/creating-security-groups) that group users with common destination and access needs.
   </Step>
   <Step title="Select destinations for the groups" icon="printer">
-    Assign the destinations that each [security group](/om-plus-dm/security/security-groups) can access.
+    Assign the destinations that each [security group](/docs/security/creating-security-groups) can access.
   </Step>
   <Step title="Assign proper permission models to each destination" icon="check">
-    Apply the appropriate [permission model](/om-plus-dm/security/permission-models) to each destination.
+    Apply the appropriate [permission model](/docs/security/setting-up-permission-models) to each destination.
   </Step>
   <Step title="Assign proper administrative privileges" icon="key">
     Grant the administrative privileges each group requires.
   </Step>
   <Step title="Assign users to groups" icon="user-plus">
-    Add [users and logins](/om-plus-dm/security/users-logins) to the appropriate groups.
+    Add [users and logins](/docs/security/adding-users-to-groups) to the appropriate groups.
   </Step>
 </Steps>
