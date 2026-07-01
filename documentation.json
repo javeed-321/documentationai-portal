@@ -1,5 +1,9 @@
 {
   "name": "Plus Technologies",
+  "initialRoute": "home",
+  "customCss": [
+    { "src": "home.css" }
+  ],
   "colors": {
     "light": {
       "brand": "#1F4E79"
@@ -19,13 +23,14 @@
             "icon": "home",
             "pages": [
               {
-                "title": "images",
-                "path": "images"
+                "title": "Home",
+                "path": "home",
+                "icon": "home"
               },
               {
                 "title": "Introduction",
                 "path": "introduction",
-                "icon": "home"
+                "icon": "book-open"
               }
             ]
           },
@@ -35,52 +40,52 @@
             "pages": [
               {
                 "title": "Using Define Destination",
-                "path": "om-plus-dm/destinations/define-destination",
+                "path": "docs/destinations/define-destination",
                 "icon": "plus"
               },
               {
                 "title": "Device Modes",
-                "path": "om-plus-dm/destinations/device-modes",
+                "path": "docs/destinations/device-modes",
                 "icon": "server"
               },
               {
                 "title": "Timers, Failover & Miscellaneous",
-                "path": "om-plus-dm/destinations/timers-options",
+                "path": "docs/destinations/timers-options",
                 "icon": "clock"
               },
               {
                 "title": "Tamper Resistance & My Print Delivery",
-                "path": "om-plus-dm/destinations/tamper-my-print-delivery",
+                "path": "docs/destinations/tamper-my-print-delivery",
                 "icon": "shield"
               },
               {
                 "title": "Extensions & Advanced",
-                "path": "om-plus-dm/destinations/extensions-advanced",
+                "path": "docs/destinations/extensions-advanced",
                 "icon": "settings"
               },
               {
                 "title": "Group Maintenance",
-                "path": "om-plus-dm/destinations/group-maintenance",
+                "path": "docs/destinations/group-maintenance",
                 "icon": "users"
               },
               {
                 "title": "Types",
-                "path": "om-plus-dm/destinations/types",
+                "path": "docs/destinations/types",
                 "icon": "tag"
               },
               {
                 "title": "i-Sat",
-                "path": "om-plus-dm/destinations/i-sat",
+                "path": "docs/destinations/i-sat",
                 "icon": "radio"
               },
               {
                 "title": "Notification Addresses",
-                "path": "om-plus-dm/destinations/notification-addresses",
+                "path": "docs/destinations/notification-addresses",
                 "icon": "bell"
               },
               {
                 "title": "Epic Print Records",
-                "path": "om-plus-dm/destinations/epic-print-records",
+                "path": "docs/destinations/epic-print-records",
                 "icon": "file-text"
               }
             ]
@@ -91,27 +96,27 @@
             "pages": [
               {
                 "title": "Advanced Forms",
-                "path": "om-plus-dm/system/advanced-forms",
+                "path": "docs/system/advanced-forms",
                 "icon": "files"
               },
               {
                 "title": "Forms Maintenance",
-                "path": "om-plus-dm/system/forms-maintenance",
+                "path": "docs/system/forms-maintenance",
                 "icon": "settings"
               },
               {
                 "title": "Hosts & Registration",
-                "path": "om-plus-dm/system/hosts-registration",
+                "path": "docs/system/hosts-registration",
                 "icon": "network"
               },
               {
                 "title": "System Settings",
-                "path": "om-plus-dm/system/system-settings",
+                "path": "docs/system/system-settings",
                 "icon": "settings"
               },
               {
                 "title": "System Status",
-                "path": "om-plus-dm/system/system-status",
+                "path": "docs/system/system-status",
                 "icon": "activity"
               }
             ]
@@ -122,7 +127,7 @@
             "pages": [
               {
                 "title": "Client Settings",
-                "path": "om-plus-dm/client/client-settings",
+                "path": "docs/client/client-settings",
                 "icon": "monitor"
               }
             ]
@@ -133,22 +138,22 @@
             "pages": [
               {
                 "title": "Security Overview",
-                "path": "om-plus-dm/security/overview",
+                "path": "docs/security/overview",
                 "icon": "shield"
               },
               {
                 "title": "Permission Models",
-                "path": "om-plus-dm/security/permission-models",
+                "path": "docs/security/permission-models",
                 "icon": "sliders"
               },
               {
                 "title": "Security Groups",
-                "path": "om-plus-dm/security/security-groups",
+                "path": "docs/security/security-groups",
                 "icon": "users"
               },
               {
                 "title": "Users & Remote Logins",
-                "path": "om-plus-dm/security/users-logins",
+                "path": "docs/security/users-logins",
                 "icon": "user-plus"
               }
             ]

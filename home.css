@@ -1,0 +1,164 @@
+/*
+  Scoped to the Home page only.
+  :root:has(h3#products) matches when the Home page content is present.
+  The "Products" H3 exists only on the Home page, so nothing below affects any other page.
+*/
+:root:has(h3#products) {
+
+  /* ─── Hide chrome for a clean landing page ─── */
+  .dai-breadcrumbs   { display: none !important; }
+  .dai-navbar-tabs   { display: none !important; }
+  .dai-page-header   { display: none !important; }
+  .page-title        { display: none !important; }
+
+  /* ─── Hide heading anchor icons ─── */
+  [data-component="Heading"] > div { display: none !important; }
+
+  /* ─── Content column (wide layout, no sidebar) ─── */
+  .dai-article {
+    padding-top: 8px !important;
+  }
+  .dai-article,
+  .dai-content-column {
+    max-width: 100% !important;
+    padding-left: 100px !important;
+    padding-right: 100px !important;
+  }
+
+  /* ─── Page heading ─── */
+  .dai-article h2:first-of-type {
+    font-size: 28px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    color: #1F4E79 !important;
+    margin: 0 0 8px !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+  &.dark .dai-article h2:first-of-type {
+    color: #7FB3E6 !important;
+  }
+
+  /* ─── Subtitle paragraph ─── */
+  .dai-article h2:first-of-type + p {
+    color: #5A6672 !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+    max-width: 820px !important;
+    margin: 0 !important;
+  }
+  &.dark .dai-article h2:first-of-type + p {
+    color: #A0AAB4 !important;
+  }
+
+  /* ─── Section labels (H3) ─── */
+  .dai-article h3 {
+    color: #1F4E79 !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    letter-spacing: 0.02em !important;
+    text-transform: uppercase !important;
+    line-height: 1.4 !important;
+    margin: 36px 0 0 !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+  &.dark .dai-article h3 {
+    color: #7FB3E6 !important;
+  }
+  .dai-article h3#products {
+    margin-top: 28px !important;
+  }
+
+  /* ─── Columns grid spacing ─── */
+  h3#products + [data-component="Columns"],
+  h3#explore-om-plus-dm + [data-component="Columns"] {
+    margin-top: 16px !important;
+    margin-bottom: 40px !important;
+    gap: 20px !important;
+  }
+
+  /* ─── Cards — clean, professional, subtle ─── */
+  [data-component="Card"] {
+    border-radius: 14px !important;
+    min-height: 170px !important;
+    background: #FFFFFF !important;
+    border: 1px solid #E4E8EC !important;
+    cursor: pointer !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 22px !important;
+  }
+  [data-component="Card"]:hover {
+    border-color: #1F4E79 !important;
+    box-shadow: 0 6px 18px rgba(31, 78, 121, 0.10) !important;
+  }
+  &.dark [data-component="Card"] {
+    background: #161B22 !important;
+    border-color: #2A313A !important;
+  }
+  &.dark [data-component="Card"]:hover {
+    border-color: #5B9BD5 !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  /* ─── Card title ─── */
+  [data-component="Card"] .dai-card-title {
+    color: #1F2A37 !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    margin: 12px 0 6px !important;
+  }
+  &.dark [data-component="Card"] .dai-card-title {
+    color: #E6EDF3 !important;
+  }
+  [data-component="Card"]:hover .dai-card-title {
+    color: #1F4E79 !important;
+  }
+  &.dark [data-component="Card"]:hover .dai-card-title {
+    color: #7FB3E6 !important;
+  }
+
+  /* ─── Card description ─── */
+  [data-component="Card"] .dai-card-description {
+    color: #5A6672 !important;
+    font-size: 13.5px !important;
+    font-weight: 400 !important;
+    line-height: 1.55 !important;
+    margin: 0 !important;
+  }
+  &.dark [data-component="Card"] .dai-card-description {
+    color: #9AA5B1 !important;
+  }
+
+  /* ─── Tablet ─── */
+  @media (max-width: 1200px) {
+    .dai-article,
+    .dai-content-column {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+  }
+
+  /* ─── Mobile ─── */
+  @media (max-width: 540px) {
+    .dai-article {
+      padding-top: 0 !important;
+    }
+    .dai-article,
+    .dai-content-column {
+      padding-left: 4px !important;
+      padding-right: 4px !important;
+    }
+    [data-component="Card"] {
+      min-height: 130px !important;
+    }
+    h3#products + [data-component="Columns"],
+    h3#explore-om-plus-dm + [data-component="Columns"] {
+      margin-bottom: 24px !important;
+    }
+  }
+}
