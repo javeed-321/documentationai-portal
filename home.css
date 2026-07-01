@@ -10,6 +10,9 @@
   .dai-navbar-tabs   { display: none !important; }
   .dai-page-header   { display: none !important; }
   .page-title        { display: none !important; }
+  .dai-page-aside    { display: none !important; }
+  .dai-toc           { display: none !important; }
+  .dai-page-nav      { display: none !important; }
 
   /* ─── Hide heading anchor icons ─── */
   [data-component="Heading"] > div { display: none !important; }
