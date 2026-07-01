@@ -1,0 +1,66 @@
+---
+title: Classes
+description: Group printers into standard classes to spool jobs collectively with load balancing.
+---
+
+Destination classes are groups of printers to which it is possible to spool collectively. In traditional load balancing schemes, the printers receive jobs in a round robin fashion (Job 1 to printer 1, job 2 to printer 2, 3 to 3, 4 back to 1, 5 to 2, etc). While OM Plus typically follows this pattern, it will not send a job to a printer it knows to be currently active, therefore accelerating printing by more evenly distributing the print jobs.
+
+OM Plus also has the ability to determine which printers in a class have the correct forms mounted to them. This would allow a user or program to send multiple types of jobs to the same class but have OM Plus intelligently distribute those jobs to the correct printers based on the forms mounts required by the documents.
+
+Standard classes and members can be added and deleted. To access this component, from the OM Plus Control Panel, click Classes. The following Class Maintenance screen appears.
+
+<Image src="https://blob-cdn.documentation.ai/org-852a81c4-9351-4db1-9f23-cefe8e32d308/doc-30784c0c-2ed6-4bd0-bbc6-7a68250c1725/1782909098581-70ls449lapj-class-maintenance.png?fm=auto&auto=compress%2Cformat" alt="OM Plus DM Class Maintenance screen showing the classes tree with Add Class, Add Member, Delete Class, and Delete Member buttons" width="374" height="525" />
+
+## Adding a Class
+
+A new standard class, which is a group of printers to which jobs can be collectively spooled, can be added. Requests will be printed to the first available printer in this working group in a round robin fashion. A class cannot be given the same name as a destination.
+
+<Steps>
+  <Step title="Click Add Class" icon="plus">
+    From the Class Maintenance screen, click Add Class.
+  </Step>
+  <Step title="Enter the class name" icon="pencil">
+    In the Enter New Class Name field, enter a new class name, and then click OK. The class appears in the list.
+  </Step>
+</Steps>
+
+## Deleting a Class
+
+An existing standard class can be deleted when it is no longer desired to collectively spool to a group of printers.
+
+<Steps>
+  <Step title="Select and delete the class" icon="trash">
+    Select a class, and then click Delete Class. A message appears asking for confirmation to delete the class and its contents.
+  </Step>
+  <Step title="Confirm" icon="check">
+    Click Yes. The class no longer appears in the list.
+  </Step>
+</Steps>
+
+## Adding Destinations to Classes
+
+New destinations can be added to an existing standard class to enlarge the group of printers to which jobs can be collectively spooled. The destination to add to a class must already be defined as a destination in OM Plus.
+
+<Steps>
+  <Step title="Select the class and add a member" icon="plus">
+    Select a class, and then click Add Member. The Select Destination screen appears.
+
+    <Image src="https://blob-cdn.documentation.ai/org-852a81c4-9351-4db1-9f23-cefe8e32d308/doc-fa73ad80-2a40-40e1-98c5-3d2641c178de/1782899958963-na0kxnwrl8-select-destination.png?fm=auto&auto=compress%2Cformat" alt="Select Destination dialog listing destinations to add to a class" width="262" height="267" />
+  </Step>
+  <Step title="Select the destination" icon="printer">
+    Select the destination to add, and then click OK. The destination appears in the list under the class.
+  </Step>
+</Steps>
+
+## Deleting Destinations from Classes
+
+A destination can be deleted from an existing standard class in order to remove it from the group of printers to which jobs are collectively spooled.
+
+<Steps>
+  <Step title="Select the class destination" icon="mouse-pointer">
+    Select the class destination to be deleted.
+  </Step>
+  <Step title="Delete the member" icon="trash">
+    Click Delete Member. The destination no longer appears in the list.
+  </Step>
+</Steps>

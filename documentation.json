@@ -43,29 +43,14 @@
             "icon": "network",
             "pages": [
               {
+                "title": "Classes",
+                "path": "docs/destinations/classes",
+                "icon": "layers"
+              },
+              {
                 "title": "Using Define Destination",
                 "path": "docs/destinations/define-destination",
                 "icon": "plus"
-              },
-              {
-                "title": "Device Modes",
-                "path": "docs/destinations/device-modes",
-                "icon": "server"
-              },
-              {
-                "title": "Timers, Failover & Miscellaneous",
-                "path": "docs/destinations/timers-options",
-                "icon": "clock"
-              },
-              {
-                "title": "Tamper Resistance & My Print Delivery",
-                "path": "docs/destinations/tamper-my-print-delivery",
-                "icon": "shield"
-              },
-              {
-                "title": "Extensions & Advanced",
-                "path": "docs/destinations/extensions-advanced",
-                "icon": "settings"
               },
               {
                 "title": "Dynamic Class Maintenance",

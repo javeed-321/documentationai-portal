@@ -1,6 +1,6 @@
 ---
 title: Using Define Destination
-description: Add, delete, clone, edit, and save destinations with the OM Plus DM Destination Manager.
+description: Add, edit, and save destinations, and configure device modes, timers, failover, tamper resistance, My Print Delivery, and advanced options.
 ---
 
 Destination management is one of the most used functions of OM Plus. New destinations can be added, and existing destinations can be modified or deleted. To access this component, from the OM Plus Control Panel, click Destination, and the OM Plus Destination Configuration screen appears.
@@ -28,7 +28,7 @@ Click the "New" button in the lower left corner of the screen, or right click on
     After clicking "Next" the window will change to ask for more specific information depending on the category selected.
   </Step>
   <Step title="Enter the device details" icon="sliders">
-    The destination name from the previous screen is brought over. The drop down menu for "Protocol" displays for network printers, but displays "Type" for other groups. Similarly, the device configuration fields change depending on what is selected from the drop down. See Device details on the [Device Modes](/docs/destinations/device-modes) page for more on the options presented in each case.
+    The destination name from the previous screen is brought over. The drop down menu for "Protocol" displays for network printers, but displays "Type" for other groups. Similarly, the device configuration fields change depending on what is selected from the drop down. See [Device Modes](#device-modes) below for more on the options presented in each case.
 
     Of note is the "Poll Mode" option. This option, when configured, allows the printer to be configured to send jobs to a remote i-Sat print server. For more information on i-Sat and i-Sat Plus servers and devices, refer to the i-Sat documentation.
 
@@ -74,4 +74,214 @@ When adding a destination, select one of the four categories that best matches t
 | Server to Server | Delivery to another server, for example an OM Plus Server or other Print Server. |
 | Electronic Delivery | Non-print delivery, for example e-mail or fax. |
 
-The device configuration fields and available protocols or types change depending on the category you choose. For full details of each protocol and mode, including Network Destination Modes such as Raw TCP, see [Device Modes](/docs/destinations/device-modes).
+The device configuration fields and available protocols or types change depending on the category you choose. For full details of each protocol and mode, including Network Destination Modes such as Raw TCP, see [Device Modes](#device-modes) below.
+
+## Device Modes
+
+The Device configuration for a destination changes based on the destination category you select. Each category exposes a different set of modes that control how OM Plus DM delivers output requests. Choose the category on the Define Destination screen (above), then select the mode that matches your delivery target.
+
+### Device Modes by Category
+
+<Tabs>
+<Tab title="Network">
+
+Network destinations require access to a network in order to function.
+
+#### Raw TCP
+
+The destination takes data over a raw TCP connection. This can be used to communicate with terminal/printer servers or laser printers with network interface. This is the preferred mode for printing to a remote network device because of its simplicity and low overhead.
+
+The address here should be the host name or IP address of the device. `Port` is the port number on which to communicate with the device. Most devices will use port number `9100`.
+
+This is also the Mode used for the Print Confirmation. Please see PJL/MPCL Job Confirmation Types.
+
+#### LPD/LPR
+
+The network destination uses the LPD/LPR Transfer Protocol. Most network print devices support the LPD/LPR Protocol. The device for this destination type can be the host name, for example, `hpjet18`. Some destinations also require a queue name. For the proper queue name, refer to the manufacturer's documentation.
+
+#### IPP (Outbound)
+
+The network destination uses the Internet Printing Protocol (IPP). Most network print devices support IPP. The destination requires a URL.
+
+</Tab>
+<Tab title="Local">
+
+Local modes are used for destinations that do not require a transfer to another system. These include locally attached printers, as well as processes.
+
+#### Directory
+
+The Destination Device field displays an existing directory for output. For example, a directory called `/reports/save` for saving output requests with OM Plus. A tilde (`~`) character in the directory path expands to the user ID of the submitting user. Therefore, if the directory path is specified as `/reports/~`, requests that user Bob submits would be written to `/reports/Bob` and reports that user Tom submits would be sent to `/reports/Tom`. By default, the file name is the request name, `RIDXXXXX`. This may be overwritten by the `-o file=filename` request parameter. Permissions on the destination directories should be set to prevent unauthorized user access to the contents. The target directory must already exist; OM Plus will not create it.
+
+#### BTPM Queue
+
+This destination type is specifically designed to work with Bottomline's eComIntegrate products. For more information on configuring this device, please contact Bottomline.
+
+#### Pipe Event
+
+<Callout kind="info">Pipe Event mode is available on Windows only.</Callout>
+
+This mode can be used for vendor-supplied software to route output requests. Some network terminal/print server vendors supply software filters for the delivery system to use. There is usually a better OM Plus mode to use instead of these filters. See Event Processing: Windows Events, `pipe.bat`.
+
+#### Report Bundler
+
+A queue designed to hold bundled requests until they are to be released to another destination. Reports submitted to this type of destination will be saved and held until an acceptable trigger event causes them to be released.
+
+#### Report Distribution
+
+The destination connects to the Report Distributor pseudo-printer. Reports submitted to this type of destination will be broken into sub-reports based on content. The sub-reports then spool as new OM Plus requests. The Destination Device field is the path to a working directory for temporary files (for example, `/tmp`). See the section on Report Distributor for more details.
+
+#### Virtual
+
+The destination is a generic process destination, used to provide an environment to a specific process. When a job is sent to this Destination Type, it is de-spooled into a 'User Filter' process that provides the data to a process (script / program / utility) and returns that process exit code back to the OM Plus system.
+
+#### Windows Print Queue
+
+<Callout kind="info">Windows Print Queue mode is available on Windows only.</Callout>
+
+The Destination Device field should contain the name of the Windows-defined printer to where the request should be sent. For example, an HP LaserJet 4 printer connected to the parallel port of the Windows print server and defined to Windows as `HPLJ4` would be configured in OM Plus using a windows mode and a device of `HPLJ4`.
+
+#### Parallel (UNIX)
+
+Used to connect to a destination attached to the local server through a parallel port.
+
+#### Serial
+
+<Callout kind="info">Serial mode is available on UNIX only.</Callout>
+
+A printer connected to server by a serial line. The device field should be the location of the serial port (eg, `/dev/term/tty006`).
+
+<Callout kind="info">Serial mode destinations assume a standard set of settings: 9600 baud, 7 data bits, 1 stop bit, even parity and software flow control. In order to modify these settings, you must use the test based interface in the server.</Callout>
+
+#### STD Out
+
+OM Plus will output the result of the print stream to standard out which can then be routed to an executable process for additional processing.
+
+</Tab>
+<Tab title="Server to Server">
+
+These modes are used for connecting to remote systems, but not typically to print devices directly.
+
+<Callout kind="info">Destinations using system-to-system modes do not honor the command parameters on the spooling system. With the exception of the `-h`, which places a job on hold, all parameters pass to the remote system for handling. Destinations using these modes do not determine the mounted form before transferring to the remote system. The form will be handled there.</Callout>
+
+#### OM Plus LPD
+
+Mode used to connect with a LPD Server. The server address and queue name must be given. (ex, legacy LP Plus, Linux, and UNIX)
+
+#### OM Plus Server
+
+Windows and UNIX. The destination is on a remote host system running OM Plus. This mode is used for passing requests between OM Plus systems, features encrypted transport, End-To-End status, and status tracing. An address and queue name must be specified.
+
+#### FTP
+
+The destination is a directory on a remote system. FTP Protocol can be used for the transfer. By default, the file name for the transfer is the request name `RIDxxxxx`. This may be overwritten by the `-o file=filename` request parameter. Enter the address, the target directory and the user name to use when connecting to this server. A `~` character in remotedir expands to the user ID of the submitting user. If remotedir begins with a `/` it is treated as an absolute path on the remote computer. If it does not, it is treated as a path relative to the home directory for the login ID used for the transfer. If the user is not specified, it defaults to the ID used when submitting to OM Plus. The `$LPHOME/security/remotelogins` file contains a table of host, user, and passwords for the FTP mode transfer. On Unix, make sure this file has permissions set to 600 to avoid compromising the remote user IDs. For example, `ftp.somplace.com`, someuser will transfer to the home directory of someuser.
+
+#### Other Print Server
+
+The destination print queue on another host computer supports the LPD/LPR Protocol. The host can be a Windows computer, UNIX system, Novell server, mainframe, or any other system that supports LPD/LPR printing. This mode may also be appropriate for a network printer that spools to disk before printing. The server address must be given along with a viable queue name on that device.
+
+</Tab>
+<Tab title="Electronic Delivery">
+
+This set of modes is used to send documents and notifications through other electronic means.
+
+#### Email
+
+The print requests are routed to an email server using Blat (Windows) or Sendmail (Unix).
+
+#### Fax
+
+The print requests are routed to a fax server such as RightFax or VisiFax.
+
+#### Pager
+
+The print requests are routed to a pager service.
+
+</Tab>
+</Tabs>
+
+### Type
+
+Type is used to link a Windows Print driver with an OM Plus Destination. In a properly configured system, OM Plus will automatically create shared Windows print queues for devices defined with a type. For setting up types, see the [Types configuration screen](/docs/destinations/types).
+
+## Timers
+
+<Image src="https://blob-cdn.documentation.ai/org-852a81c4-9351-4db1-9f23-cefe8e32d308/doc-fa73ad80-2a40-40e1-98c5-3d2641c178de/1782900475660-d6qw34xxyi-destination-manager-timers.png?fm=auto&auto=compress%2Cformat" alt="Destination Manager: Timers tab with purge, write, open, close, and retry values" width="661" height="468" />
+
+This is a collection of time-outs and maximums for the destination.
+
+<Callout kind="info">In all cases but purge delay, a value of `0` means unlimited.</Callout>
+
+| Field | Description |
+| --- | --- |
+| Purge Delay | Amount of time, in seconds, for a job to remain in the queue after cancellation or completion. |
+| Write Timer | Time, in seconds, OM Plus will wait on a write to the destination device. |
+| Open Timer | The amount of time, in seconds, for OM Plus to open a connection to the destination. |
+| Close Delay | The amount of time a connection is allowed to remain open after the close command has been sent. In streaming mode, this is the maximum amount of time allowed between jobs before the connection to the destination is closed. |
+| Retry Timer | The amount of time, in seconds, we will suspend waiting on a write. |
+| Transmit Rate | The speed (in characters per second) at which jobs will be transferred to a destination. Mostly useful for legacy dot matrix type devices or printers at remote sites with limited bandwidth. |
+| Maximum Request Size in Pages | The maximum number of pages a document can have and still be printed on this device. |
+
+## Failover
+
+This allows for a failover destination to be designated for this device. To set a device to use the included failover logic, check the `Failover Error` box. If desired, select an alternate failover destination from the drop down menu, or select the original destination to retry jobs on this printer until successful.
+
+## Miscellaneous
+
+<Image src="https://blob-cdn.documentation.ai/org-852a81c4-9351-4db1-9f23-cefe8e32d308/doc-fa73ad80-2a40-40e1-98c5-3d2641c178de/1782900451902-9xa23riwg7r-destination-manager-miscellaneous.png?fm=auto&auto=compress%2Cformat" alt="Destination Manager: Miscellaneous tab with banner, form-feed, and print-stream options" width="661" height="468" />
+
+| Field | Description |
+| --- | --- |
+| Print Banner | Should the banner page be printed for requests spooled to this device? |
+| Add Carriage Returns to Line Feeds | On some printers and for some print jobs a line feed will be indicated but not a carriage return, causing the job to appear to have a "stair step" line of text off the right side of the page. This setting, when enabled, changes plain line feeds into carriage return line feeds that will reset the text line to the left edge after each line. |
+| Form Feed after each job | Inserts a form feed at the end of each job if one is not already present. |
+| Form Feed after each copy | Inserts a form feed at the end of each copy of a job if one is not already present. |
+| Hold Default | Holds (does not print) all jobs sent to this destination. |
+| Purge Default | Allows jobs printed on this destination to be purged. |
+| Default Form | The name of the form that, by default, is defined to this destination. For more information on forms, see Form Maintenance. |
+| Control File | Default Print Control file for this destination. |
+| Custom Data Filter | The full path name to a custom script to be used by this destination. The print job is delivered to the filter on standard in and the job is returned using standard out. If the filter does not return anything on standard out, this is a valid condition and OM Plus will accept that there is nothing further to process. |
+| Filter Control File | Determines whether the control file will be processed as part of the print job when the custom data filter is executed. |
+| Notifications | What user or group should be notified in case of an error with this device. |
+| Print Streams Allowed | Useful for legacy devices that may not support all print streams, or for destinations that use scripting for processing only certain types of data. |
+
+## Tamper Resistance
+
+<Image src="https://blob-cdn.documentation.ai/org-852a81c4-9351-4db1-9f23-cefe8e32d308/doc-fa73ad80-2a40-40e1-98c5-3d2641c178de/1782900431842-6m80f4tm93y-destination-manager-tamper-resistance.png?fm=auto&auto=compress%2Cformat" alt="Destination Manager: Tamper Resistance tab with frequency, version, and macro" width="661" height="468" />
+
+Tamper Resistant Printing applies a protective pantograph to jobs sent to a printer, helping guard printed output against unauthorized copying or alteration.
+
+<Callout kind="info">This field is interpreted by the model, make sure to use the latest model included with our software.</Callout>
+
+| Field | Description |
+| --- | --- |
+| Frequency | How often OM Plus should apply the Tamper Resistant Printing to jobs for a printer. **Always** – Apply regardless of the settings of the job. **Never** – Don't apply regardless of the settings of the job. **Job Specific** – If the job has a RX option, then apply, otherwise do not. |
+| Version | The version of the pantograph being used. |
+| Macro | The calibration setting saved on the printer. |
+
+## My Print Delivery
+
+<Image src="https://blob-cdn.documentation.ai/org-852a81c4-9351-4db1-9f23-cefe8e32d308/doc-fa73ad80-2a40-40e1-98c5-3d2641c178de/1782900410027-wm02bvj1rg-destination-manager-my-print-delivery.png?fm=auto&auto=compress%2Cformat" alt="Destination Manager: My Print Delivery tab with type, IP address, and hold queue" width="661" height="468" />
+
+My Print Delivery configures secure release for a destination, holding jobs until an authenticated user releases them at the printer. Release can be scoped to a queue, where jobs are released by any authenticated user for a defined queue, or to a user, where jobs are released only by the authenticated user who created the job.
+
+| Field | Description |
+| --- | --- |
+| Type | The type of My Print Delivery being used. **Queue** – Jobs are released by any authenticated user for a defined queue. **User** – Jobs are released by the authenticated user who created the job. |
+| IP Address | The actual IP address that the requests will come from. For external card readers this is the card reader address. For "embedded" solutions this should be the address of the printer. |
+| Hold Queue | Is the print queue that contains the jobs that can be released to this printer. |
+| Queue Label | Is the text to show on the Secure Queue Release screen. |
+
+## Extensions
+
+Extensions can be used to configure custom parameters for a printer. These are used exclusively in custom implementations and should not be used without direction from Plus Technologies.
+
+## Advanced
+
+The Advanced tab provides a centralized list of some advanced features. Most of these settings are intended for use by legacy or power users. In several places the functionality is duplicated in other screens (Mode, Device, PJL, SNMP, etc.) but some are unique to this screen.
+
+| Field | Description |
+| --- | --- |
+| Model | Models can be defined to provide additional functionality to the destination. This must be the name of an executable script located in the models directory. |
+| Support | A comment field that can be used to give the name or contact information for a support technician. |
+| Translate Table | Translation tables are used to substitute characters in the print stream. The translation table must be a specially formatted file located in the `trans` folder. |
+| PCAP | This is a print control file that will be inserted at the beginning of a print job. While some users still use these, in most cases it is better and more efficient to use a different method. |

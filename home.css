@@ -134,6 +134,12 @@
     color: #9AA5B1 !important;
   }
 
+  /* ─── Products row: narrower cards, compact & even ─── */
+  h3#products + [data-component="Columns"] [data-component="Card"] {
+    min-height: 140px !important;
+    padding: 20px !important;
+  }
+
   /* ─── Tablet ─── */
   @media (max-width: 1200px) {
     .dai-article,
