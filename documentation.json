@@ -2,7 +2,9 @@
   "name": "Plus Technologies",
   "initialRoute": "home",
   "customCss": [
-    { "src": "home.css" }
+    {
+      "src": "home.css"
+    }
   ],
   "colors": {
     "light": {
@@ -30,7 +32,9 @@
               {
                 "title": "Introduction",
                 "path": "introduction",
-                "icon": "book-open"
+                "icon": "home",
+                "show-sidebar": false,
+                "show-toc": false
               }
             ]
           },
