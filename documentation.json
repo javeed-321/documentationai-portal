@@ -34,9 +34,7 @@
               {
                 "title": "Introduction",
                 "path": "introduction",
-                "icon": "home",
-                "show-sidebar": false,
-                "show-toc": false
+                "icon": "home"
               }
             ]
           },
