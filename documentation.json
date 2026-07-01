@@ -1,151 +1,69 @@
 {
-  "name": "Starter Kit",
+  "name": "Plus Technologies",
   "colors": {
     "light": {
-      "brand": "#F97316"
+      "brand": "#1F4E79"
     },
     "dark": {
-      "brand": "#FDBA74"
+      "brand": "#5B9BD5"
     }
   },
   "navigation": {
     "tabs": [
       {
-        "tab": "Documentation",
-        "icon": "book",
-        "groups": [
-          {
-            "group": "Start Here",
-            "icon": "rocket",
-            "pages": [
-              {
-                "title": "Introduction",
-                "path": "introduction",
-                "icon": "home"
-              },
-              {
-                "title": "Quickstart",
-                "path": "quickstart",
-                "icon": "zap"
-              },
-              {
-                "title": "Components",
-                "path": "components",
-                "icon": "code"
-              }
-            ]
-          },
-          {
-            "group": "Components",
-            "icon": "layers",
-            "pages": [
-              {
-                "title": "Images",
-                "path": "components/images",
-                "icon": "image"
-              },
-              {
-                "title": "Cards",
-                "path": "components/cards",
-                "icon": "square"
-              },
-              {
-                "title": "Code",
-                "path": "components/code",
-                "icon": "code"
-              },
-              {
-                "title": "Callouts",
-                "path": "components/callouts",
-                "icon": "message-square"
-              },
-              {
-                "title": "Steps",
-                "path": "components/steps",
-                "icon": "list-ordered"
-              },
-              {
-                "title": "Tabs",
-                "path": "components/tabs",
-                "icon": "columns"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "icon": "code",
+        "tab": "OM Plus DM",
+        "icon": "printer",
         "groups": [
           {
             "group": "Overview",
-            "icon": "file-text",
+            "icon": "home",
             "pages": [
-              {
-                "title": "Authentication",
-                "path": "authentication",
-                "icon": "lock"
-              }
+              { "title": "Introduction", "path": "introduction", "icon": "home" }
             ]
           },
           {
-            "group": "Sample Endpoints",
-            "openapi": "openapi.yaml"
-          }
-        ]
-      },
-      {
-        "tab": "Help Center",
-        "icon": "help-circle",
-        "pages": [
-          {
-            "title": "Help Center",
-            "path": "help-center",
-            "icon": "home"
-          },
-          {
-            "group": "FAQs",
-            "icon": "help-circle",
-            "expandable": false,
+            "group": "Destinations",
+            "icon": "network",
             "pages": [
-              {
-                "title": "Documentation Source",
-                "path": "help-center/faq/getting-started"
-              }
+              { "title": "Using Define Destination", "path": "om-plus-dm/destinations/define-destination", "icon": "plus" },
+              { "title": "Device Modes", "path": "om-plus-dm/destinations/device-modes", "icon": "server" },
+              { "title": "Timers, Failover & Miscellaneous", "path": "om-plus-dm/destinations/timers-options", "icon": "clock" },
+              { "title": "Tamper Resistance & My Print Delivery", "path": "om-plus-dm/destinations/tamper-my-print-delivery", "icon": "shield" },
+              { "title": "Extensions & Advanced", "path": "om-plus-dm/destinations/extensions-advanced", "icon": "settings" },
+              { "title": "Group Maintenance", "path": "om-plus-dm/destinations/group-maintenance", "icon": "users" },
+              { "title": "Types", "path": "om-plus-dm/destinations/types", "icon": "tag" },
+              { "title": "i-Sat", "path": "om-plus-dm/destinations/i-sat", "icon": "radio" },
+              { "title": "Notification Addresses", "path": "om-plus-dm/destinations/notification-addresses", "icon": "bell" },
+              { "title": "Epic Print Records", "path": "om-plus-dm/destinations/epic-print-records", "icon": "file-text" }
             ]
           },
           {
-            "group": "Troubleshooting",
-            "icon": "alert-triangle",
-            "expandable": false,
+            "group": "System",
+            "icon": "layers",
             "pages": [
-              {
-                "title": "Page Missing in Sidebar",
-                "path": "help-center/troubleshooting/install-error"
-              }
+              { "title": "Advanced Forms", "path": "om-plus-dm/system/advanced-forms", "icon": "files" },
+              { "title": "Forms Maintenance", "path": "om-plus-dm/system/forms-maintenance", "icon": "settings" },
+              { "title": "Hosts & Registration", "path": "om-plus-dm/system/hosts-registration", "icon": "network" },
+              { "title": "System Settings", "path": "om-plus-dm/system/system-settings", "icon": "settings" },
+              { "title": "System Status", "path": "om-plus-dm/system/system-status", "icon": "activity" }
             ]
           },
           {
-            "group": "Guides",
-            "icon": "book-open",
-            "expandable": false,
+            "group": "Client",
+            "icon": "monitor",
             "pages": [
-              {
-                "title": "Create Your First Page",
-                "path": "help-center/guides/setup-project"
-              }
+              { "title": "Client Settings", "path": "om-plus-dm/client/client-settings", "icon": "monitor" }
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Changelog",
-        "icon": "clock",
-        "pages": [
+          },
           {
-            "title": "Changelog",
-            "path": "changelog",
-            "icon": "history"
+            "group": "Security",
+            "icon": "shield",
+            "pages": [
+              { "title": "Security Overview", "path": "om-plus-dm/security/overview", "icon": "shield" },
+              { "title": "Permission Models", "path": "om-plus-dm/security/permission-models", "icon": "sliders" },
+              { "title": "Security Groups", "path": "om-plus-dm/security/security-groups", "icon": "users" },
+              { "title": "Users & Remote Logins", "path": "om-plus-dm/security/users-logins", "icon": "user-plus" }
+            ]
           }
         ]
       }

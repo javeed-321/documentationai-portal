@@ -1,0 +1,129 @@
+---
+title: Device Modes
+description: Network, local, server-to-server, and electronic delivery modes for OM Plus DM destinations.
+---
+
+The Device configuration for a destination changes based on the destination category you select. Each category exposes a different set of modes that control how OM Plus DM delivers output requests. Choose the category on the [Define Destination](/om-plus-dm/destinations/define-destination) screen, then select the mode that matches your delivery target.
+
+## Device Modes by Category
+
+<Tabs>
+<Tab title="Network">
+
+Network destinations require access to a network in order to function.
+
+### Raw TCP
+
+The destination takes data over a raw TCP connection. This can be used to communicate with terminal/printer servers or laser printers with network interface. This is the preferred mode for printing to a remote network device because of its simplicity and low overhead.
+
+The address here should be the host name or IP address of the device. `Port` is the port number on which to communicate with the device. Most devices will use port number `9100`.
+
+This is also the Mode used for the Print Confirmation. Please see PJL/MPCL Job Confirmation Types.
+
+### LPD/LPR
+
+The network destination uses the LPD/LPR Transfer Protocol. Most network print devices support the LPD/LPR Protocol. The device for this destination type can be the host name, for example, `hpjet18`. Some destinations also require a queue name. For the proper queue name, refer to the manufacturer's documentation.
+
+### IPP (Outbound)
+
+The network destination uses the Internet Printing Protocol (IPP). Most network print devices support IPP. The destination requires a URL.
+
+</Tab>
+<Tab title="Local">
+
+Local modes are used for destinations that do not require a transfer to another system. These include locally attached printers, as well as processes.
+
+### Directory
+
+The Destination Device field displays an existing directory for output. For example, a directory called `/reports/save` for saving output requests with OM Plus. A tilde (`~`) character in the directory path expands to the user ID of the submitting user. Therefore, if the directory path is specified as `/reports/~`, requests that user Bob submits would be written to `/reports/Bob` and reports that user Tom submits would be sent to `/reports/Tom`. By default, the file name is the request name, `RIDXXXXX`. This may be overwritten by the `-o file=filename` request parameter. Permissions on the destination directories should be set to prevent unauthorized user access to the contents. The target directory must already exist; OM Plus will not create it.
+
+### BTPM Queue
+
+This destination type is specifically designed to work with Bottomline's eComIntegrate products. For more information on configuring this device, please contact Bottomline.
+
+### Pipe Event
+
+<Callout kind="info">Pipe Event mode is available on Windows only.</Callout>
+
+This mode can be used for vendor-supplied software to route output requests. Some network terminal/print server vendors supply software filters for the delivery system to use. There is usually a better OM Plus mode to use instead of these filters. See Event Processing: Windows Events, `pipe.bat`.
+
+### Report Bundler
+
+A queue designed to hold bundled requests until they are to be released to another destination. Reports submitted to this type of destination will be saved and held until an acceptable trigger event causes them to be released.
+
+### Report Distribution
+
+The destination connects to the Report Distributor pseudo-printer. Reports submitted to this type of destination will be broken into sub-reports based on content. The sub-reports then spool as new OM Plus requests. The Destination Device field is the path to a working directory for temporary files (for example, `/tmp`). See the section on Report Distributor for more details.
+
+### Virtual
+
+The destination is a generic process destination, used to provide an environment to a specific process. When a job is sent to this Destination Type, it is de-spooled into a 'User Filter' process that provides the data to a process (script / program / utility) and returns that process exit code back to the OM Plus system.
+
+### Windows Print Queue
+
+<Callout kind="info">Windows Print Queue mode is available on Windows only.</Callout>
+
+The Destination Device field should contain the name of the Windows-defined printer to where the request should be sent. For example, an HP LaserJet 4 printer connected to the parallel port of the Windows print server and defined to Windows as `HPLJ4` would be configured in OM Plus using a windows mode and a device of `HPLJ4`.
+
+### Parallel (UNIX)
+
+Used to connect to a destination attached to the local server through a parallel port.
+
+### Serial
+
+<Callout kind="info">Serial mode is available on UNIX only.</Callout>
+
+A printer connected to server by a serial line. The device field should be the location of the serial port (eg, `/dev/term/tty006`).
+
+<Callout kind="info">Serial mode destinations assume a standard set of settings: 9600 baud, 7 data bits, 1 stop bit, even parity and software flow control. In order to modify these settings, you must use the test based interface in the server.</Callout>
+
+### STD Out
+
+OM Plus will output the result of the print stream to standard out which can then be routed to an executable process for additional processing.
+
+</Tab>
+<Tab title="Server to Server">
+
+These modes are used for connecting to remote systems, but not typically to print devices directly.
+
+<Callout kind="info">Destinations using system-to-system modes do not honor the command parameters on the spooling system. With the exception of the `-h`, which places a job on hold, all parameters pass to the remote system for handling. Destinations using these modes do not determine the mounted form before transferring to the remote system. The form will be handled there.</Callout>
+
+### OM Plus LPD
+
+Mode used to connect with a LPD Server. The server address and queue name must be given. (ex, legacy LP Plus, Linux, and UNIX)
+
+### OM Plus Server
+
+Windows and UNIX. The destination is on a remote host system running OM Plus. This mode is used for passing requests between OM Plus systems, features encrypted transport, End-To-End status, and status tracing. An address and queue name must be specified.
+
+### FTP
+
+The destination is a directory on a remote system. FTP Protocol can be used for the transfer. By default, the file name for the transfer is the request name `RIDxxxxx`. This may be overwritten by the `-o file=filename` request parameter. Enter the address, the target directory and the user name to use when connecting to this server. A `~` character in remotedir expands to the user ID of the submitting user. If remotedir begins with a `/` it is treated as an absolute path on the remote computer. If it does not, it is treated as a path relative to the home directory for the login ID used for the transfer. If the user is not specified, it defaults to the ID used when submitting to OM Plus. The `$LPHOME/security/remotelogins` file contains a table of host, user, and passwords for the FTP mode transfer. On Unix, make sure this file has permissions set to 600 to avoid compromising the remote user IDs. For example, `ftp.somplace.com`, someuser will transfer to the home directory of someuser.
+
+### Other Print Server
+
+The destination print queue on another host computer supports the LPD/LPR Protocol. The host can be a Windows computer, UNIX system, Novell server, mainframe, or any other system that supports LPD/LPR printing. This mode may also be appropriate for a network printer that spools to disk before printing. The server address must be given along with a viable queue name on that device.
+
+</Tab>
+<Tab title="Electronic Delivery">
+
+This set of modes is used to send documents and notifications through other electronic means.
+
+### Email
+
+The print requests are routed to an email server using Blat (Windows) or Sendmail (Unix).
+
+### Fax
+
+The print requests are routed to a fax server such as RightFax or VisiFax.
+
+### Pager
+
+The print requests are routed to a pager service.
+
+</Tab>
+</Tabs>
+
+## Type
+
+Type is used to link a Windows Print driver with an OM Plus Destination. In a properly configured system, OM Plus will automatically create shared Windows print queues for devices defined with a type. For setting up types, see the [Types configuration screen](/om-plus-dm/destinations/types).

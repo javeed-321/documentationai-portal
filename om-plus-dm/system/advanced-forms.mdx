@@ -1,0 +1,48 @@
+---
+title: Advanced Forms
+description: Split and redirect data streams across destinations with advanced forms.
+---
+
+An Advanced Form in OM Plus has a specific and useful utility. With an Advanced Form attached to an OM Plus data stream, that data stream can be split and redirected to any number of other OM Plus destinations. The split can be equal or in blocks of hundreds, or the data stream can be kept whole.
+
+The Advanced Form can have a number of uses. Its given use is to split a data stream to a number of destinations, but by setting the Type to `all` it is possible to send entire copies of the data stream to a number of different destinations. This is often used as a distribution list.
+
+<Callout kind="info">Only the OM Plus data streams noted as simple, PCL-1, or Post-DSC can be split using an Advanced Form. For more information, see Data Types.</Callout>
+
+## Opening Advanced Forms
+
+Advanced forms can be added, modified, or deleted in the Client Interface. To access this component, from the OM Plus Control Panel, double-click Advanced Forms, and then the Advanced Forms screen appears.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/system/advanced-forms.png" alt="Advanced Forms window with form file, lines, purge, and destination segments" width="555" height="491" />
+
+## Adding an Advanced Form
+
+<Steps>
+<Step title="Enter a new form name" icon="pencil">
+In the Advanced Form field, enter a new form name.
+</Step>
+<Step title="Complete the remaining fields" icon="save">
+In the remaining fields, enter the appropriate information, and then click Save Advanced Form File.
+</Step>
+</Steps>
+
+An existing form can be updated and saved with another name by selecting the form, and then from the File menu, selecting Save As.
+
+An existing form can be deleted by selecting the form, and then from the File menu, selecting Delete.
+
+## Fields
+
+Fields used in this control include:
+
+| Field | Description |
+| --- | --- |
+| Lines | Enter the lines per page, which is used for page counting purposes only. OM Plus counts pages by counting form feeds, if present in the output job, or by counting the number of lines until it reaches the lines per page value. OM Plus will NOT insert form feed characters into the data after the line per page value. |
+| Purge | Select whether or not to spool the original output job and separate the segments. When an advanced form is used, the output job that initially spools can be optionally printed along with any segments, or removed after all segments of the advanced form spool. Setting the Purge column to Y deletes the initially spooled report without printing. This option would be used so that a complete copy of the initial report is not printed in addition to its separate components as defined by the form. |
+| Destination | Which OM Plus print destination. This is specified for each segment. |
+| Advanced Form (optional) | Apply this electronic form to this segment. The default is none. |
+| Advanced Form Options (optional) | The `fprint` program options that may appear if an electronic form file is selected. |
+| Forms | Which standard form to use with a segment. The default is the form for the segment's print destination. See [Forms Maintenance](/om-plus-dm/system/forms-maintenance). |
+| Type | View the section of the original spooled output job to send to this segment. |
+| All | Delivers the document to multiple destinations, and each destination receives a complete copy of the report. |
+| Split | Sends an equal amount of the original output job to this segment. For example, if there are three segments, the original output job is split into thirds. |
+| Number of Pages | Specifies the number of pages this destination should accept for each segment. For example, if the goal is to send 100 pages to segment one, 50 pages to segment two, and 150 pages to segment three, the parameters would be 100, 50, and 150 respectively. If the spool file contains more pages than specified for the total number of segments, the last segment receives all the additional pages. |

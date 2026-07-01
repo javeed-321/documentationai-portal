@@ -1,0 +1,57 @@
+---
+title: Hosts & Registration
+description: Health check, remote host setup, registration status, and RID spans.
+---
+
+OM Plus Delivery Manager provides system-level utilities for confirming that an installation is healthy, working with remote hosts in a distributed environment, reviewing product registration status, and controlling the range of RID numbers a server uses.
+
+## Health Check (UNIX only)
+
+For OM Plus on UNIX, there is a built-in health check to determine the status of the installation and confirm that it is operating properly. To access this component, from the OM Plus Administration, double-click Health Check and a prompt appears asking for the host to check and whether to automatically fix any issues. Regretfully, some issues, such as file permissions, cannot be fixed with this process.
+
+Plus Technologies support representatives may ask for this command to be executed and for any error messages that appear to be relayed in order to help resolve problems.
+
+The following is an example OM Plus Health Check screen:
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/system/health-check.png" alt="Health Check window listing OM Plus files and missing components" width="577" height="370" />
+
+## Working With Remote Host Setup
+
+See the section Configuring Multiple OM Plus Installations in a Distributed Environment for more information about this feature.
+
+## Registration Status
+
+From the OM Plus Administration, click Registration Status, and then the following System Registration Status screen appears.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/system/registration-status.png" alt="System Registration Status window listing licensed products and queues" width="552" height="332" />
+
+The screen lists each licensed product along with its registration details:
+
+| Field | Description |
+| --- | --- |
+| Product | The name of the licensed OM Plus product (for example, OM Plus DM, Archive, Web Interface, Report Distribution, BC-XOM(SAP), Report Bundler, Context Delivery, My Print Delivery, i-Sat, and Stats Manager). |
+| Status | Indicates whether the product is registered. |
+| Queues | The number of licensed queues for the product. |
+| Expiration | The expiration date of the registration, if applicable. |
+
+<Callout kind="info">If you are moving an OM Plus installation from one computer to another, contact Plus Technologies Support so they can create a new registration key for you.</Callout>
+
+### Hosts
+
+Allows you to select different hosts.
+
+### TRP
+
+Reports the number of Tamper Resistance Prescriptions queues.
+
+## RID Spans Setup
+
+See the section on R3/SAP Interface for more information about this feature.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/system/rid-span-maintenance.png" alt="RID Span Maintenance window for defining per-host RID ranges" width="534" height="341" />
+
+The RID spans system is used to limit the range of RID numbers that a particular OM Plus server will use. When multiple servers are to be set up to use this system, one of the OM Plus servers must be designated the span host. This is done by putting that host's own name in the Span Host field.
+
+Add a line containing host, starting RID, and ending RID for each OM Plus server in the enterprise. Starting RIDs must be larger than ending RIDs. Ranges cannot overlap. The minimum range is 500, but it is highly recommended that the range be greater than the maximum number of requests allowed on that system (see System Defaults).
+
+The system that is the Span Host is the only system that needs to be set up using this utility. Periodically the Span Host will publish the current file to all of the systems listed. If a server that is not the Span Host is updated, the changes will be lost as soon as the real Span Host publishes its list.

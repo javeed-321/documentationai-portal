@@ -1,0 +1,61 @@
+---
+title: Forms Maintenance
+description: Create and manage standard and advanced forms to control paper and output.
+---
+
+OM Plus uses the form name associated with an output job to ensure the correct paper is loaded in the destination before printing. The form name for the output job must match the form mounted on the destination, which is usually set when the job spools by using the `-f form_name` command option of `dcclp`.
+
+For example, when accounts payable wants to print checks and use special check paper or special micro toner cartridges, the check output job would spool using the form name "checks" and when the checks output job is submitted it will not print until the correct paper or toner is loaded in the printer. By mounting the form checks on the destination through OM Plus before loading the new paper in the destination, all other output jobs in the destination's queue not needing the form checks are held while the check job prints. When the check job completes, stock (default paper) can be returned to the destination and the form that was on the destination before the check job can be mounted.
+
+<Callout kind="info">
+If either LPPlus or OM Plus is the destination mode indicating a transfer to a remote system, the form ID passes to the remote system. Transfers take effect immediately, therefore ignoring the currently mounted form. System mode will also transfer the request immediately, but the form ID is not passed.
+</Callout>
+
+## Form Types
+
+OM Plus uses two types of forms, standard and advanced.
+
+- **Standard Forms:** Ensures that the correct paper is loaded in the destination and sends a download file to the destination before the output job.
+- **[Advanced Forms](/om-plus-dm/system/advanced-forms):** De-spools to multiple locations, divides a report equally over multiple destinations, or divides a report based on a preset number of pages per section.
+
+To access this component, from the OM Plus Administration, System double-click Forms, and then the Form Definition screen appears.
+
+## Using Standard Forms
+
+Standard forms can be added, modified or deleted to ensure the correct form is loaded for the output job.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/system/form-definition.png" alt="Form Definition window with form name, lines per page, and download/postload options" width="390" height="402" />
+
+### Creating Forms
+
+<Steps>
+  <Step title="Enter a form name" icon="pencil">
+    In the Form Name field, enter a new form name.
+  </Step>
+  <Step title="Complete the remaining fields" icon="list">
+    In the remaining fields, enter the appropriate information, and then click Save.
+  </Step>
+  <Step title="Confirm the update" icon="check">
+    When a message appears indicating the new form is updated, click OK.
+  </Step>
+</Steps>
+
+### Modifying Forms
+
+To modify existing forms, select the form from the Form Name field, make changes, and then click Save. When a message appears indicating the form is updated, click OK.
+
+### Deleting Forms
+
+Select the form from the Form Name field, and then from the File menu, select Delete. When a message appears to confirm the deletion of the form, click Yes.
+
+## Fields
+
+| Field | Description |
+| --- | --- |
+| Form Name | Select an existing name, or enter a name for a new form. Assign the form a functional name (for example, checks or PO). The form will be referenced by this name on the spooling command line or from the request status screen. |
+| Mount Required | Does this form need mounted to the printer before a request can print. Operator intervention may or may not be required for mounting forms. If "N" is selected, any spooled file requesting this form will automatically de-spool regardless of the form mounted on the destination. If "Y" is selected then a request will only de-spool if the form mounted in the selected destination matches this form. Otherwise the request is marked with a status of "fpend". See the "fpend" event script, under the 'Using Event Processing' section of this manual. |
+| Lines Per Page | Enter the value to use for page counting purposes. On some data types, OM Plus counts pages by counting form feeds, if present in the output job, or by counting the number of lines until it reaches the lines per page value. In the example, the check contains 22 lines per page. If this is not set correctly, the number of pages OM Plus counts will differ from the number of pages that print. |
+| Enable Form Download File | If set to "Y", a copy of the file name in the Copy Download File From Host File field is sent to the destination before the output job. If set to "N", the download file is not sent. |
+| Copy Download File From Host File | Indicate to allow the form file (if a true electronic form) to exist for Windows in the `%OMHOME%\form\<FORMNAME>` folder and for UNIX in the `$LPHOME/form/<FORMNAME>` directory with the required filename downloaded. This file was created the first time the form was defined from this screen. The Client allows the downloaded file to be updated from a more recent or another file on the computer by selecting this option. The Character-based interface requires the form to be deleted and re-added to update the downloaded file. |
+| Enable Postload File | If set to "Y", a copy of the file name in the Copy Download File From Host File field is sent to the destination after the output job. If set to "N", the download file is not sent. |
+| Copy Postload File From Host File | Indicate if this file, if similar to the downloaded file, should allow for resetting of the destination after de-spooling with this form. Selecting this option allows for Windows `%OMHOME%\form\<FORMNAME>\` postload and UNIX `$LPHOME/forms/<FORMNAME>/postload` file to be updated without deleting and re-adding the form. |

@@ -1,0 +1,51 @@
+---
+title: Security Overview
+description: How OM Plus security works, and the order to set it up.
+---
+
+With so much functionality and ease of access with printing reports, security in OM Plus becomes more of an issue than with standard Windows spooling or UNIX `lp` systems.
+
+## How OM Plus Security Works
+
+OM Plus security uses destination permission models and groups of users. If the user does not appear in the security system, they will be assigned to the "guest" group and assigned the privileges given to that group. When OM Plus is first installed, the default permissions model allows unrestricted use. If a user is added to the security system, that user can only access destinations to which their group is assigned and only perform functions in the permissions model applied to the destinations. A user can only be in one security group at a time, but a group can consist of one or many users.
+
+Before attempting to set up security, Plus Technologies recommends that note is taken of each user, the destinations to which they need access, the functions they need to perform, and any other users, if any, with similar needs. It will then be possible to apply this information to OM Plus security. We also recommend backing up the "security" folder in the OM Plus installation directory before any modifications to security roles in order to provide a working environment that can be restored easily in case of an unintended lock out.
+
+## Applications and Functions
+
+For information on the applications and their functions, refer to the following table:
+
+| Field | Description |
+| --- | --- |
+| Hosts/Domain | Displays the users from remote computers that are associated with a local user. |
+| Groups | Displays the name of the group, the destinations in the group, and the security models that apply to each destination. |
+| Logins | Displays the login IDs that are associated with a local user. This is used primarily with the HTML interface. |
+| Models | Displays the name of the model and the permission levels to which it is associated. |
+| User List | Displays the local users and the group to which they are assigned. |
+
+## Using Security Groups
+
+Group Maintenance is used to group the OM Plus users that have common destination and access needs. A permissions model is applied to each destination.
+
+To set up security groups, complete these tasks in the order they appear.
+
+<Steps>
+  <Step title="Set up permission models" icon="shield">
+    Configure the [permission models](/om-plus-dm/security/permission-models) that define the functions users can perform.
+  </Step>
+  <Step title="Create new security groups" icon="users">
+    Create the [security groups](/om-plus-dm/security/security-groups) that group users with common destination and access needs.
+  </Step>
+  <Step title="Select destinations for the groups" icon="printer">
+    Assign the destinations that each [security group](/om-plus-dm/security/security-groups) can access.
+  </Step>
+  <Step title="Assign proper permission models to each destination" icon="check">
+    Apply the appropriate [permission model](/om-plus-dm/security/permission-models) to each destination.
+  </Step>
+  <Step title="Assign proper administrative privileges" icon="key">
+    Grant the administrative privileges each group requires.
+  </Step>
+  <Step title="Assign users to groups" icon="user-plus">
+    Add [users and logins](/om-plus-dm/security/users-logins) to the appropriate groups.
+  </Step>
+</Steps>

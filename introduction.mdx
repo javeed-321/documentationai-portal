@@ -1,78 +1,64 @@
 ---
-title: Set Up Your Documentation
-description: 'A minimal, editable starting point for your own documentation site.'
+title: OM Plus Delivery Manager
+description: Enterprise output management and document delivery — the administration and configuration reference for OM Plus DM.
 ---
-## Start here (5–10 minutes)
 
-1. Edit this page so it describes your product and audience.
+**OM Plus Delivery Manager (DM)** is Plus Technologies' enterprise output management platform. It streamlines print operations and enables advanced document delivery — routing every request to the right destination across network printers, local devices, server-to-server links, and electronic channels such as email and fax.
 
-2. Customize your onboarding flow in the [Quickstart](/quickstart) page.
+This guide is the administration and configuration reference for OM Plus DM. It walks through managing **destinations**, tuning the **system**, configuring the **client** interface, and setting up **security** — the day-to-day tasks an OM Plus administrator performs.
 
-3. Delete or rewrite any sections and pages you do not plan to use.
-
-4. Invite a teammate to review the structure and concepts starting from [Core Concepts](/concepts).
-
-<Callout kind="alert" collapsed="false">
-  This site ships with placeholder content. Edit the text, links, and examples so they match your product before sharing it with others.
+<Callout kind="info">
+  This guide covers OM Plus DM administration across four areas — Destinations, System, Client, and Security. Use the **OM Plus DM** tab to move between chapters, or start from the cards below.
 </Callout>
 
-## What you get
-
-<Columns cols="3">
-  <Card title="Docs structure" href="/quickstart" icon="book-open" horizontal="false">
-    A clear navigation layout with starter pages you can rename or replace.
-  </Card>
-
-  <Card title="Components" href="#try-a-few-components" icon="layout-grid" horizontal="false" target="_self">
-    Prebuilt blocks like Callouts, Steps, Tabs, and Cards to keep pages clean.
-  </Card>
-
-  <Card title="API reference hook" href="/authentication" icon="code" horizontal="false">
-    A placeholder `openapi.yaml` you can swap with your real API spec.
-  </Card>
-</Columns>
-
-## Make your first edit
-
-<Steps>
-  <Step title="Rewrite this page" icon="edit" title-type="p">
-    Update the title, description, and sections in `introduction` so they reflect your product and documentation goals.
-  </Step>
-
-  <Step title="Customize Quickstart" icon="zap" title-type="p">
-    Replace the steps in `quickstart` with your real onboarding flow so new readers know exactly how to get started.
-  </Step>
-
-  <Step title="Remove or repurpose samples" icon="trash" title-type="p">
-    Delete unused sample sections and pages, or rewrite them with your own content to keep navigation focused.
-  </Step>
-</Steps>
-
-## Try a few components
-
-You can browse the component gallery in the [Components](/components) page for ready-to-use examples of Cards, Callouts, Steps, Tabs, and more.
-
-## Continue to the rest of the sample
+## Explore the guide
 
 <Columns cols="2">
-  <Card title="Quickstart" href="/quickstart" icon="zap" horizontal="false">
-    See the minimal setup flow.
+  <Card title="Destinations" href="/om-plus-dm/destinations/define-destination" icon="network" horizontal="false">
+    Define and manage print destinations — device modes, timers, failover, tamper-resistant printing, groups, i-Sat, and more.
   </Card>
 
-  <Card title="Core Concepts" href="/concepts" icon="layers" horizontal="false">
-    Learn how pages, navigation, and components fit together.
+  <Card title="System" href="/om-plus-dm/system/advanced-forms" icon="layers" horizontal="false">
+    Configure server-wide behavior — advanced forms, forms maintenance, registration, RID spans, and system settings.
   </Card>
 
-  <Card title="Components" href="/components" icon="code" horizontal="false">
-    A small gallery of built-in components.
+  <Card title="Client" href="/om-plus-dm/client/client-settings" icon="monitor" horizontal="false">
+    Set up the OM Plus client interface — hosts, request-status options, and document viewers.
   </Card>
 
-  <Card title="Authentication" href="/authentication" icon="lock" horizontal="false">
-    Example layout for an auth guide.
-  </Card>
-
-  <Card title="Help Center" href="/help-center" icon="help-circle" horizontal="false">
-    Starter FAQ, guides, and troubleshooting templates.
+  <Card title="Security" href="/om-plus-dm/security/overview" icon="shield" horizontal="false">
+    Control access with permission models, security groups, and user and remote-login mapping.
   </Card>
 </Columns>
 
+## Key capabilities
+
+<Columns cols="3">
+  <Card title="Multi-channel delivery" href="/om-plus-dm/destinations/device-modes" icon="send" horizontal="false">
+    Deliver output over Raw TCP, LPD/LPR, IPP, server-to-server links, and electronic channels like email and fax.
+  </Card>
+
+  <Card title="Destination & group management" href="/om-plus-dm/destinations/group-maintenance" icon="network" horizontal="false">
+    Add, clone, and organize destinations, and group them by type, location, or floor for fast lookup.
+  </Card>
+
+  <Card title="Advanced forms & output control" href="/om-plus-dm/system/advanced-forms" icon="files" horizontal="false">
+    Split, copy, and route data streams with advanced forms, and match the right paper with standard forms.
+  </Card>
+
+  <Card title="Failover & reliability" href="/om-plus-dm/destinations/timers-options" icon="shield-check" horizontal="false">
+    Keep output flowing with failover destinations, tunable timers, and retry behavior.
+  </Card>
+
+  <Card title="Remote delivery with i-Sat" href="/om-plus-dm/destinations/i-sat" icon="radio" horizontal="false">
+    Reach printers at remote sites reliably, even where connections cannot be guaranteed.
+  </Card>
+
+  <Card title="Enterprise security" href="/om-plus-dm/security/overview" icon="lock" horizontal="false">
+    Apply permission models and security groups so users only access the destinations and actions they should.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  New to OM Plus DM? Start with [Using Define Destination](/om-plus-dm/destinations/define-destination) — destination management is the most-used part of the product.
+</Callout>

@@ -1,0 +1,22 @@
+---
+title: Epic Print Records
+description: Configure Epic Print Records for EPIC EMR print delivery.
+---
+
+The Epic Print Records (EPR) tool is designed to be used with EPIC EMR systems. It is meant to configure a list of options for Epic Print Records that can be passed to an EPIC Transform Server. Unless the client is configured to allow it, this screen will not appear on most OM Plus installations.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/destinations/epic-print-records.png" alt="EPR to Destination Map window used to configure Epic Print Records" width="686" height="368" />
+
+## Fields
+
+| Field | Description |
+| --- | --- |
+| Host | The host name where the OM Plus print queue will be defined. These are typically the same as the host name where this configuration file is created, but special cases can arise where a different server should be used to deliver jobs to a specific printer. This field can be used to direct traffic in that way. |
+| Filter | A text based filter for quickly finding EPR or OM Plus queues in the table. |
+| EPR Queue | The name of the EPR as it appears on the Transform server. |
+| OM Plus Queue | The name of the OM Plus queue that will handle delivery of the print job. |
+| Printer Type | With the [Types](/om-plus-dm/destinations/types) screen, this will define the print driver that should be used to render the job on the Transform Server. This field will be passed to the Transform Server and a Windows queue for that driver will be created to render the job ready for print on the Transform Server before transferring it to the host specified in the first field. |
+| Tray | Which tray number should be associated with the EPR. |
+| Simplex/Duplex | Turns on or off duplexing for the device. |
+| Paper Size | The size of the sheet that should be used for this EPR. |
+| Media Type | The paper type that should be associated with the EPR. |

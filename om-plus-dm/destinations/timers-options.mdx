@@ -1,0 +1,47 @@
+---
+title: Timers, Failover & Miscellaneous
+description: Configure destination timers, failover, and miscellaneous print options.
+---
+
+The Timers, Fail-over, and Miscellaneous tabs of the Destination Manager control the time-outs, maximums, failover behavior, and general print options that apply to a destination.
+
+## Timers
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/destinations/destination-manager-timers.png" alt="Destination Manager: Timers tab with purge, write, open, close, and retry values" width="661" height="468" />
+
+This is a collection of time-outs and maximums for the destination.
+
+<Callout kind="info">In all cases but purge delay, a value of `0` means unlimited.</Callout>
+
+| Field | Description |
+| --- | --- |
+| Purge Delay | Amount of time, in seconds, for a job to remain in the queue after cancellation or completion. |
+| Write Timer | Time, in seconds, OM Plus will wait on a write to the destination device. |
+| Open Timer | The amount of time, in seconds, for OM Plus to open a connection to the destination. |
+| Close Delay | The amount of time a connection is allowed to remain open after the close command has been sent. In streaming mode, this is the maximum amount of time allowed between jobs before the connection to the destination is closed. |
+| Retry Timer | The amount of time, in seconds, we will suspend waiting on a write. |
+| Transmit Rate | The speed (in characters per second) at which jobs will be transferred to a destination. Mostly useful for legacy dot matrix type devices or printers at remote sites with limited bandwidth. |
+| Maximum Request Size in Pages | The maximum number of pages a document can have and still be printed on this device. |
+
+## Failover
+
+This allows for a failover destination to be designated for this device. To set a device to use the included failover logic, check the `Failover Error` box. If desired, select an alternate failover destination from the drop down menu, or select the original destination to retry jobs on this printer until successful.
+
+## Miscellaneous
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/destinations/destination-manager-miscellaneous.png" alt="Destination Manager: Miscellaneous tab with banner, form-feed, and print-stream options" width="661" height="468" />
+
+| Field | Description |
+| --- | --- |
+| Print Banner | Should the banner page be printed for requests spooled to this device? |
+| Add Carriage Returns to Line Feeds | On some printers and for some print jobs a line feed will be indicated but not a carriage return, causing the job to appear to have a "stair step" line of text off the right side of the page. This setting, when enabled, changes plain line feeds into carriage return line feeds that will reset the text line to the left edge after each line. |
+| Form Feed after each job | Inserts a form feed at the end of each job if one is not already present. |
+| Form Feed after each copy | Inserts a form feed at the end of each copy of a job if one is not already present. |
+| Hold Default | Holds (does not print) all jobs sent to this destination. |
+| Purge Default | Allows jobs printed on this destination to be purged. |
+| Default Form | The name of the form that, by default, is defined to this destination. For more information on forms, see Form Maintenance. |
+| Control File | Default Print Control file for this destination. |
+| Custom Data Filter | The full path name to a custom script to be used by this destination. The print job is delivered to the filter on standard in and the job is returned using standard out. If the filter does not return anything on standard out, this is a valid condition and OM Plus will accept that there is nothing further to process. |
+| Filter Control File | Determines whether the control file will be processed as part of the print job when the custom data filter is executed. |
+| Notifications | What user or group should be notified in case of an error with this device. |
+| Print Streams Allowed | Useful for legacy devices that may not support all print streams, or for destinations that use scripting for processing only certain types of data. |

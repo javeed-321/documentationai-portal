@@ -1,0 +1,55 @@
+---
+title: System Status
+description: View a summary of OM Plus system, version, and disk information.
+---
+
+The System Information component provides a summary of information about the OM Plus system. To access this component, from the OM Plus Administration, click the System Tab, click System Status, and the following System Information screen appears.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/system/system-information.png" alt="System Information window summarizing OS, OM Plus version, and disk space" width="434" height="476" />
+
+The screen groups the information by host and then into the System, OM Plus, Accounting, and Archive sections.
+
+## System
+
+Details about the underlying operating system and available disk space.
+
+| Field | Description |
+| --- | --- |
+| Operating System | The operating system and build the OM Plus system is running on (for example, Windows 10 Enterprise (Build 18362)). |
+| Disk Bytes Free | The amount of free disk space, in MB. |
+| Disk % Free | The percentage of disk space that is free. |
+
+## OM Plus
+
+Details about the OM Plus installation, version, and workload.
+
+| Field | Description |
+| --- | --- |
+| Serial Number | The OM Plus serial number, or No Serial Number if none is assigned. |
+| OM Plus Version | The installed OM Plus version (for example, 3.1.1.0001). |
+| OM Plus Patch Level | The applied patch level. |
+| OM Plus Home Directory | The OM Plus home directory (for example, `C:\Plustech\OMPlus\Server\`). |
+| Destination Count | The number of destinations defined out of the maximum allowed (for example, 30/3000). |
+| Request Count | The number of requests out of the maximum allowed (for example, 0/10000). |
+| Log Size | The size of the log, in MB. |
+
+## Accounting
+
+Details about the accounting log.
+
+| Field | Description |
+| --- | --- |
+| Active | Whether accounting is active (Yes or No). |
+| Log Size | The size of the accounting log, in MB. |
+
+## Archive
+
+Details about the archive and its available disk space.
+
+| Field | Description |
+| --- | --- |
+| Active | Whether archive is active (Yes or No). |
+| Disk Bytes Free | The amount of free disk space for the archive, in MB, or Unknown. |
+| Disk % Free | The percentage of archive disk space that is free, or Unknown. |
+
+This screen is informational only. It can be very helpful for problem resolutions as it shows disk space and the number of destinations defined. OM Plus support may ask for the version number from this screen.

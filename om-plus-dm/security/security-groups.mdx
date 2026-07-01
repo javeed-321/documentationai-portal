@@ -1,0 +1,72 @@
+---
+title: Security Groups
+description: Create security groups, assign destinations and models, and set admin levels.
+---
+
+Group Maintenance is used to group OM Plus users that have common destination and access needs. A [permission model](/om-plus-dm/security/permission-models) is applied to each destination.
+
+## Creating Security Groups
+
+To add security groups, complete these steps:
+
+<Steps>
+  <Step title="Select New Group" icon="plus">
+    From the OM Plus Security Groups screen file menu, select "New Group". A prompt appears asking for a name for the new group.
+  </Step>
+  <Step title="Enter the group name" icon="pencil">
+    In the Enter New Group Name field, enter the new group name, and then click OK.
+  </Step>
+</Steps>
+
+The new group name is now available in the Security Group drop down menu.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/security/security-groups-new.png" alt="Security Groups window showing a new group, users, and destinations/models" width="484" height="491" />
+
+## Selecting a Destination for the Group
+
+After adding a group, one must add destinations to the security group, and then assign the proper permissions model to the destination.
+
+<Callout kind="info">
+Once you add all the destinations to the group, it is possible to add [users](/om-plus-dm/security/users-logins). Users can only belong to one group. OM Plus uses the name you enter. If you are on UNIX, the name should match the login user ID to the host on which OM Plus is installed.
+</Callout>
+
+To add a destination, complete these steps:
+
+<Steps>
+  <Step title="Select Add" icon="plus">
+    From the OM Plus Security Group screen, select "Add" from the bottom Destinations and Models pane. The Destinations screen appears.
+
+    <Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/security/select-destination.png" alt="Select Destination dialog listing destinations to add to a security group" width="262" height="267" />
+  </Step>
+  <Step title="Select the destination" icon="printer">
+    Select the destination to add, and then click OK. The Models screen appears.
+
+    <Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/security/select-model.png" alt="Select Model dialog for choosing a permission model" width="262" height="125" />
+  </Step>
+  <Step title="Select the permission model" icon="shield">
+    Select the [permission model](/om-plus-dm/security/permission-models) this group should use for this destination, and then click OK.
+  </Step>
+</Steps>
+
+The destination and its associated security model appear.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/security/security-groups-with-destination.png" alt="Security Groups window with a destination and its assigned security model" width="484" height="531" />
+
+### Adding a Printer Group
+
+A group of printers can be added by clicking the printer icon in the lower left. This will bring up a group selection screen.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/security/select-printer-group.png" alt="Select Printer Group dialog for adding a whole group to a security group" width="262" height="125" />
+
+Selecting a group and model will add all printers in that group to this security group.
+
+## Administrative Levels
+
+A group must also be assigned an administrative level.
+
+| Level | Capabilities |
+| --- | --- |
+| None | Users may not use any of the printer level or server level functions in OM Plus. |
+| Printer Admin | Users may use printer level functions of OM Plus (adding or removing destinations, changing destination settings, etc) but not any of the server level functions of OM Plus. |
+| System Admin | Users may use printer and system level functions in OM Plus but may not edit the security profiles. |
+| Full Admin | These users may change any setting in OM Plus. |

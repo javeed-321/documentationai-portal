@@ -1,0 +1,57 @@
+---
+title: Users & Remote Logins
+description: Add local users and map remote host/domain logins to OM Plus users.
+---
+
+Local, remote, and login users can all be added to a security group, but local users must be added first. Once a user is part of the security system, they can only access the destinations assigned to their group and only perform the functions defined in the permissions model applied to those destinations. This page explains how to add local users to a group and how to resolve remote spool and command requests to a local OM Plus user. For the group and permissions concepts these users build on, see [Security Groups](/om-plus-dm/security/security-groups).
+
+## Adding Users to Groups
+
+A user can only be in one security group at a time, but a group can consist of one or many users. OM Plus uses the name entered. In UNIX, the name should match the login user ID on the host on which OM Plus is installed.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/security/security-groups-users.png" alt="Security Groups window (Printer Admin) used when adding users to a group" width="484" height="491" />
+
+To add local users to a group, complete these steps:
+
+<Steps>
+  <Step title="Open the Security Maintenance Groups screen" icon="window">
+    Navigate to the OM Plus Security Maintenance Groups screen.
+  </Step>
+  <Step title="Add User" icon="user-plus">
+    Click Add User.
+  </Step>
+  <Step title="Enter a user name" icon="keyboard">
+    In the Enter User Name field, enter a new user name. The user appears in the list for this group.
+  </Step>
+</Steps>
+
+<Callout kind="info">Users cannot be added to the group "guest" as this is the default group for any unresolved users.</Callout>
+
+## Adding Remote Users (Host/Domain)
+
+When a spool request comes in from another host system, either via LPD or a linked Windows printer, OM Plus will attempt to resolve a "local" user name so that it can apply security measures. Remote users are how this is done. If a request comes in and a local user is not resolved, the request will get whatever the permissions the "guest" security group has.
+
+Remote users are also used to resolve command requests from the OM Plus Client. The client sends the user name that is logged in to the client system and the host name (or Windows domain name) of that system whenever it processes a command. Again, if there is no resolved local user, the security permissions will be as the "guest" group.
+
+The local user is resolved from the combination of what host the remote request came from and what user ID that host supplied. For computers connected to a Windows domain, the Host will be the base domain name (as stored in the `USERDOMAIN` environment variable).
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/security/new-login.png" alt="New Login dialog with Host/Domain, User ID, and Resolved User fields" width="262" height="209" />
+
+To define a remote user, complete these steps:
+
+<Steps>
+  <Step title="Add User" icon="user-plus">
+    From the OM Plus Security Maintenance Host/Domain screen, click Add User (the bottom left button) to define a remote user that corresponds with a pre-defined local user. The New Login screen appears.
+  </Step>
+  <Step title="Enter the Host/Domain" icon="server">
+    In the Host/Domain field, enter the hostname, IP address, or Windows domain name of the computer on which the user will work. If an asterisk character (`*`) is entered in this field, the local user will be resolved based only on the remote user name.
+  </Step>
+  <Step title="Enter the User ID" icon="id-card">
+    In the User ID field, enter the name the user will enter when logging into the remote system or Domain. If an asterisk character (`*`) is entered in this field, the system will not care what the user ID was. It will apply the local user field to all user IDs from the associated domain.
+  </Step>
+  <Step title="Enter the Resolved User and click OK" icon="user-check">
+    In the Resolved User field, enter the name of the user to associate, as it appears on the User List tab, and then click OK. If an asterisk character (`*`) is entered in this field, the system will use whatever Remote Users was sent by the system as the local user name.
+  </Step>
+</Steps>
+
+<Callout kind="info">If an asterisk is put in both the Remote User and Local User fields, the system will use as the local user the user ID that the user logged into their session with. They can then be added to the security groups by their operating system login ID.</Callout>

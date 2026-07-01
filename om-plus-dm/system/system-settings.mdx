@@ -1,0 +1,85 @@
+---
+title: System Settings
+description: Server-wide system defaults and destination defaults for OM Plus DM.
+---
+
+The System Default component is similar to the Client Configuration component, except that it is used for the OM Plus Server. The settings include parameters that the OM Plus Server uses to operate. To access this component, from the OM Plus Administration, click System, System Settings, and then the System Default screen appears.
+
+<Callout kind="info">
+The 'Maximum Requests' and 'Maximum Dests' are important sections in system tuning. If the Maximum Dest field is not set to greater than the license number of destinations, you will not be able to use that maximum number. If the 'Maximum Requests' are not set to exceed the number that would be expected to be listed in the "Status Screen" at a given time, the jobs exceeding that number will not de-spool.
+</Callout>
+
+## System Defaults
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/system/system-settings-system.png" alt="System Settings: System tab with server role, shared memory, and job options" width="407" height="601" />
+
+| Field | Description | Platform |
+| --- | --- | --- |
+| Server Role - Stand Alone | Is a server that runs alone and is not part of a group. | |
+| Server Role - Primary Server | Is a server that acts as the first source for data and responds to queries. | |
+| Server Role - Backup Server | Is a server that mimics the primary server. | |
+| Maximum Destinations | Enter the maximum number of destinations that will be defined on this system. | |
+| Maximum Virtual Dests | Enter the maximum number of virtual destinations that will need. (minimum of 3) | |
+| Maximum Jobs | The number of concurrent requests (printed, interrupted, or otherwise) for which to reserve memory. | |
+| System Notifications | The email address to notify in case of system problems. | |
+| Default Printer | Select the destination to send spool requests if no destination is specified on the spool command line. | |
+| Accounting | Select whether or not OM Plus will write records to the acctlog file each time a request de-spools. | |
+| Track Parent / Child | Should OM Plus keep track of any parent/child relationships between requests. | |
+| Hold Jobs | Select a global setting to ensure that all requests spooling to OM Plus spool with a Hold status. | |
+| Purge Jobs | Select whether or not to set all requests to purge automatically. | |
+| Require Form Mounts | Require that the form specified by the job matches the form mounted to the destination. | |
+| Message Queue Keys | These are the keys that UNIX uses for identifying OM Plus message queues. These values should only be changed at the request of a Plus Technologies support person. | UNIX/Linux only |
+
+To set the system defaults, complete these steps:
+
+<Steps>
+<Step title="Change the default options" icon="pencil">
+From the System Defaults screen, change the default options, as needed.
+</Step>
+<Step title="Save" icon="check">
+Click Save.
+</Step>
+</Steps>
+
+## Destination Defaults
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/system/destination-defaults.png" alt="System Settings: Destination tab with default accepting/enabled, timers, and options" width="459" height="601" />
+
+<Callout kind="info">
+Changing the values of these settings does not change the values of any destination that has already been defined. Only newly added destinations will be affected.
+</Callout>
+
+Several of the timer fields below are covered in more detail under [Timers and Options](/om-plus-dm/destinations/timers-options).
+
+| Field | Description |
+| --- | --- |
+| Initially Accepting | Will a newly created destination automatically receive jobs? |
+| Initially Enabled | Will a new destination automatically release jobs? |
+| Fail-Over Requests | Will a new destination automatically fail over to a defined alternate destination? |
+| Alternate Destination | The default alternate destination. |
+| Purge Jobs | Will jobs sent to a new destination purge after completion by default? |
+| Hold Jobs | Will jobs sent to a new destination be held for release by default? |
+| Open Time | Enter the number of seconds OM Plus will use to try and open a connection to a network device. See [Timers and Options](/om-plus-dm/destinations/timers-options). |
+| Write Time | Enter the number of seconds OM Plus requires to try to write data to a destination before marking the request interrupted and disabling the destination. A successful write to the destination resets this timer. See [Timers and Options](/om-plus-dm/destinations/timers-options). |
+| Purge Delay | Enter the amount of time in seconds to keep a printed request before purging or archiving it. It has a value range of 0-99999. See [Timers and Options](/om-plus-dm/destinations/timers-options). |
+| Close Delay | Enter the number of seconds OM Plus holds the connection to this device open to allow it to flush its buffers. See [Timers and Options](/om-plus-dm/destinations/timers-options). |
+| Retry Time | Number of seconds allowed between attempts to deliver a job. See [Timers and Options](/om-plus-dm/destinations/timers-options). |
+| Metering (CPS) | Enter the number of characters per second to transfer to the target device. This is useful if there is limited bandwidth. |
+| Type | The default type to use when creating a new device. For more information, see Types. |
+| Interface Model | This setting is what model to use for a printer's interface script. Most implementations use the model that the system selects based on the destination's mode. |
+| Default Form | Which form to use as the default for a new destination. A request will default to the form specified for its destination unless a different one is specified on the command line. |
+| Default Print Control | Which print control to use by default on a new device. |
+| File Break | Should OM Plus append a form feed at the end of each request. To always add a form feed, select "always." To add a form feed only when one is not detected, select "conditional." |
+| Filter Program | Indicates the default user filter for a new destination. |
+| Translation Table | Which translation table to use by default with a newly defined destination. These tables will translate one character into another. They will not translate strings. |
+| Support Person | Indicates the default support person for a new destination. |
+| Notifications | The default email address to notify in case of problems with a device. |
+| Line Feed Convert | Should the OM Plus convert all line feeds to carriage return line feed. |
+| Copy Break | Select whether or not to append a form feed between each copy in a request. |
+| Filter Control File | Should the control file be added to the job before or after processing through a user filter? |
+| PDF Capable | Should a new device be assumed to be capable of printing a PDF file? |
+| Banner Page | Should an OM Plus banner page print before each request. |
+
+## Extensions
+
+This screen can be used to define a set of Extensions to pass on to any newly created destination. These can be used to configure additional functionality as needed for custom solutions.

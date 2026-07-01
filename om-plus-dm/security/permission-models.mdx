@@ -1,0 +1,93 @@
+---
+title: Permission Models
+description: Define request, destination, and archive permissions with access levels.
+---
+
+OM Plus security uses permission models to determine the rights a user has to a destination and the jobs spooled to that destination. Each model sets an access level for every request, destination, and archive action, and can then be applied to a destination when defining groups of users in Group Maintenance.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/security/security-models.png" alt="Security Models window with request, destination, and archive permissions" width="644" height="531" />
+
+From the OM Plus Security Maintenance tab, select Model to determine the level of access desired for this model, per item.
+
+## Permission Areas
+
+A permission model is divided into three areas: Request Permissions, Destination Permissions, and Archive Permissions.
+
+### Request Permissions
+
+Request Permissions control the actions a user can take on jobs (requests):
+
+| Field | Description |
+| --- | --- |
+| Status | Controls which requests a user can see in the Request Status screen. |
+| Cancel | Controls whether the user may cancel a request. |
+| Hold/Resume | Controls whether the user may hold or resume a request. |
+| Range | Controls whether the user may set a print range on a request. |
+| Restart | Controls whether the user may restart a request. |
+| Suspend | Controls whether the user may suspend a request. |
+| View | Controls whether the user may view the request in one of the viewers. |
+| Set Banner | Controls whether the user may set the banner on a request. |
+| Set Copy Break | Controls whether the user may set copy break on a request. |
+| Set File Break | Controls whether the user may set file break on a request. |
+| Set Line Feed Convert | Controls whether the user may set line feed convert on a request. |
+| Set Purge | Controls whether the user may set purge on a request. |
+| Specify Character Set | Controls whether the user may specify the character set. |
+| Specify Destination | Controls whether the user may specify the destination. |
+| Specify Copies | Controls whether the user may specify the number of copies. |
+| Specify Data Type | Controls whether the user may specify the data type. |
+| Specify DST File | Controls whether the user may specify the DST file. |
+| Specify E-Form | Controls whether the user may specify the e-form. |
+| Specify E-Mail/Fax | Controls whether the user may specify e-mail or fax delivery. |
+| Specify Form | Controls whether the user may specify the form. |
+| Specify Print Control | Controls whether the user may specify print control. |
+| Specify Print Time | Controls whether the user may specify the print time. |
+| Specify Priority | Controls whether the user may specify the priority. |
+| Specify Print Options | Controls whether the user may specify print options. |
+| Specify Title | Controls whether the user may specify the title. |
+| Specify User Filter | Controls whether the user may specify the user filter. |
+
+<Callout kind="info">The "Status" option determines which requests a user can see in the Request Status screen. "View" determines whether or not the user may view the request in one of the viewers.</Callout>
+
+<Callout kind="info">Information on the other request actions can be found in the Request Actions section.</Callout>
+
+### Destination Permissions
+
+Destination Permissions control the actions a user can take on a destination:
+
+| Field | Description |
+| --- | --- |
+| Spool To Destination | Controls whether the user may spool jobs to the destination. |
+| Status | Controls whether the user may view destination status. |
+| Set Accept/Reject | Controls whether the user may set accept or reject on the destination. |
+| Enable | Controls whether the user may enable the destination. |
+| Disable | Controls whether the user may disable the destination. |
+| Mount Form | Controls whether the user may mount a form on the destination. |
+| Set Translation Table | Controls whether the user may set the translation table. |
+| Switch to Alt. Destination | Controls whether the user may switch to an alternate destination. |
+
+### Archive Permissions
+
+Archive Permissions control the actions a user can take on archived jobs:
+
+| Field | Description |
+| --- | --- |
+| Search | Controls whether the user may search the archive. |
+| Retrieve | Controls whether the user may retrieve archived jobs. |
+| Delete | Controls whether the user may delete archived jobs. |
+
+## Access Levels
+
+For information about the access levels and their descriptions, refer to the following table.
+
+| Access (Windows) | Access (UNIX) | Description |
+| --- | --- | --- |
+| None | 0 = No Access | Cannot perform the function. |
+| Owner | 1 = User Access | Can perform the function only if the user owns the output job. |
+| Security Group | 2 = Group Access | Can perform the function only if the user or another group member owns the output job. |
+| All | 3 = Unrestricted Access | Can perform the function regardless of job ownership. |
+
+Once the permissions model is saved it can be applied to a destination when defining groups of users in Group Maintenance. See [Security Groups](/om-plus-dm/security/security-groups) for details.
+
+<Callout kind="info">User access means it is possible to perform the action on requests belonging to the user ID. Group access means group members can only perform the action on requests belonging to their group ID.</Callout>
+
+<Callout kind="tip">We recommend that you set up a permission model for users and one for administrators.</Callout>

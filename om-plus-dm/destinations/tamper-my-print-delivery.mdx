@@ -1,0 +1,33 @@
+---
+title: Tamper Resistance & My Print Delivery
+description: Set up tamper-resistant printing and My Print Delivery secure release.
+---
+
+The Destination Manager provides two tabs for securing output: Tamper Resistance applies tamper-resistant pantograph printing to a printer's jobs, and My Print Delivery configures secure pull-print release for a destination.
+
+## Tamper Resistance
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/destinations/destination-manager-tamper-resistance.png" alt="Destination Manager: Tamper Resistance tab with frequency, version, and macro" width="661" height="468" />
+
+Tamper Resistant Printing applies a protective pantograph to jobs sent to a printer, helping guard printed output against unauthorized copying or alteration.
+
+<Callout kind="info">This field is interpreted by the model, make sure to use the latest model included with our software.</Callout>
+
+| Field | Description |
+| --- | --- |
+| Frequency | How often OM Plus should apply the Tamper Resistant Printing to jobs for a printer. **Always** – Apply regardless of the settings of the job. **Never** – Don't apply regardless of the settings of the job. **Job Specific** – If the job has a RX option, then apply, otherwise do not. |
+| Version | The version of the pantograph being used. |
+| Macro | The calibration setting saved on the printer. |
+
+## My Print Delivery
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/destinations/destination-manager-my-print-delivery.png" alt="Destination Manager: My Print Delivery tab with type, IP address, and hold queue" width="661" height="468" />
+
+My Print Delivery configures secure release for a destination, holding jobs until an authenticated user releases them at the printer. Release can be scoped to a queue, where jobs are released by any authenticated user for a defined queue, or to a user, where jobs are released only by the authenticated user who created the job.
+
+| Field | Description |
+| --- | --- |
+| Type | The type of My Print Delivery being used. **Queue** – Jobs are released by any authenticated user for a defined queue. **User** – Jobs are released by the authenticated user who created the job. |
+| IP Address | The actual IP address that the requests will come from. For external card readers this is the card reader address. For "embedded" solutions this should be the address of the printer. |
+| Hold Queue | Is the print queue that contains the jobs that can be released to this printer. |
+| Queue Label | Is the text to show on the Secure Queue Release screen. |

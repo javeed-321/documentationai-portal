@@ -1,0 +1,73 @@
+---
+title: Group Maintenance
+description: Create and manage destination groups to speed up printer lookup.
+---
+
+The Request Status screen may use destination groups to refine its data. For example, with anything more than thirty destinations defined, it can be difficult to find a particular printer in the list. Printers can be grouped by type of printer (color, directory, or laser), location (southeast or northwest), or floor, and a printer can be assigned to more than one group. To access this component, from the OM Plus Administration, double-click Group Maintenance, and then the Group Maintenance screen appears.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/destinations/group-maintenance.png" alt="Group Maintenance window showing groups and their member destinations" width="380" height="525" />
+
+<Callout kind="info">
+Destinations must be added to the group before using them in the status menus. When using the `Lookup` menu on the Request Status screen, select `Groups` to view the defined groups.
+</Callout>
+
+## Adding a Group
+
+Add a group to narrow the search for a printer in the Request Status screen. A group can be defined based on type of printer, location, or floor, and it is possible to assign a printer to more than one group.
+
+To add a group, complete these steps:
+
+<Steps>
+  <Step title="Add the group" icon="plus">
+    Select a host, and then click Add Group.
+  </Step>
+  <Step title="Name the group" icon="pencil">
+    In the Enter New Group Name field, enter a new group name, and then click OK.
+  </Step>
+</Steps>
+
+The group appears in the list.
+
+## Deleting a Group
+
+A group can be deleted when it is no longer needed. For example, if groups were defined by floor, and there were no longer printers on a particular floor, the group for that floor could be deleted.
+
+To delete a group, complete steps:
+
+<Steps>
+  <Step title="Select and delete the group" icon="trash">
+    Select a group, and then click Delete Group. A message appears to confirm the deletion of the group and its contents.
+  </Step>
+  <Step title="Confirm the deletion" icon="check">
+    Click Yes.
+  </Step>
+</Steps>
+
+The group no longer appears in the list.
+
+## Adding Destinations to Groups
+
+Destinations are added to an existing group to narrow the search for a particular printer. For example, new color printers could be added to the Group "Color". A printer can be assigned to more than one group.
+
+<Callout kind="info">
+The destination to add to a group must already be a defined destination in OM Plus.
+</Callout>
+
+To add a destination to a group, complete these steps:
+
+<Steps>
+  <Step title="Open the member selection dialog" icon="users">
+    Select a group, and then click Add Member. The Select Additional Group Members screen appears.
+
+    <Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/destinations/select-group-members.png" alt="Select Additional Group Members dialog listing available destinations" width="300" height="353" />
+  </Step>
+  <Step title="Add the destination" icon="check">
+    Select the destination to add, and then click OK.
+  </Step>
+</Steps>
+
+The destination appears in the list under the group.
+
+## Deleting Destinations from Groups
+
+Destinations can be deleted from a group when the printer is retired, or when it is longer needed to appear on the Request Status screen in a particular group. To do this, select the group destination to delete, and then click Delete Member. The destination no longer appears in the list.

@@ -1,0 +1,32 @@
+---
+title: i-Sat
+description: Manage printers at remote sites with i-Sat servers.
+---
+
+The i-Sat interface provides an additional means of managing printers defined to different remote i-Sat units. This can also be done on an individual destination basis through the [Poll Mode](/om-plus-dm/destinations/device-modes) field on the destination configuration screen.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/destinations/i-sat-maintenance.png" alt="i-Sat Maintenance window with i-Sats and available and assigned destinations" width="559" height="392" />
+
+## Creating a new i-Sat
+
+To create a new i-Sat, select `File > Add i-Sat`. A dialog box will appear asking for the name of the new i-Sat.
+
+## Removing an i-Sat
+
+To remove an i-Sat, select the i-Sat in the tree and select `File > Remove i-Sat`. Click "yes" to remove.
+
+## Adding a Device to an i-Sat
+
+To add a device to i-Sat, open the OMPlus Control Panel and create a new destination. Enter a Destination name and select Network Printer then click Next. Enter the IP address and check the checkbox next to [Poll Mode](/om-plus-dm/destinations/device-modes).
+
+## Removing a Device from i-Sat
+
+To remove a device in i-Sat, open the OM Plus Administration and select a destination that was added to i-Sat. Uncheck the checkbox next to [Poll Mode](/om-plus-dm/destinations/device-modes).
+
+## Push Update
+
+Select the Push Update button (the wrench toolbar icon). This will force the OM Plus server to update the remote i-Sat with a list of destinations that should be defined on that system.
+
+## Request Log
+
+Select the Request Log button (the log toolbar icon). This will display a copy of the log for the selected i-Sat on the local machine. This process can be very useful for remote troubleshooting.

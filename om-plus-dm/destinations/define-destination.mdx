@@ -1,0 +1,77 @@
+---
+title: Using Define Destination
+description: Add, delete, clone, edit, and save destinations with the OM Plus DM Destination Manager.
+---
+
+Destination management is one of the most used functions of OM Plus. New destinations can be added, and existing destinations can be modified or deleted. To access this component, from the OM Plus Control Panel, click Destination, and the OM Plus Destination Configuration screen appears.
+
+<Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/destinations/destination-manager-device.png" alt="OM Plus DM Destination Manager: host tree with a network destination's Device tab selected" width="661" height="468" />
+
+The Destination Manager interface screen was created to allow quick and easy editing of OM Plus Destinations, even in large numbers.
+
+## Adding, Deleting, and Updating Destinations
+
+### Add
+
+Click the "New" button in the lower left corner of the screen, or right click on "Destinations" beneath the host name and select "New" from the popup menu. The Add New Destination screen appears.
+
+<Steps>
+  <Step title="Open the Add New Destination screen" icon="plus">
+    Click the "New" button in the lower left corner of the screen. Alternately, right click on "Destinations" beneath the host name and select "New" from the popup menu.
+  </Step>
+  <Step title="Enter a name and select a Category" icon="pencil">
+    Input a name for this destination, then select the Category (type) for this destination. The available categories are Network Printer, Local Printer, Server to Server, and Electronic Delivery. Optionally select a Destination Type from the drop down.
+
+    <Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/destinations/add-new-destination-category.png" alt="Add New Destination dialog: choosing the destination name and category" width="284" height="311" />
+  </Step>
+  <Step title="Click Next" icon="arrow-right">
+    After clicking "Next" the window will change to ask for more specific information depending on the category selected.
+  </Step>
+  <Step title="Enter the device details" icon="sliders">
+    The destination name from the previous screen is brought over. The drop down menu for "Protocol" displays for network printers, but displays "Type" for other groups. Similarly, the device configuration fields change depending on what is selected from the drop down. See Device details on the [Device Modes](/om-plus-dm/destinations/device-modes) page for more on the options presented in each case.
+
+    Of note is the "Poll Mode" option. This option, when configured, allows the printer to be configured to send jobs to a remote i-Sat print server. For more information on i-Sat and i-Sat Plus servers and devices, refer to the i-Sat documentation.
+
+    <Image src="https://raw.githubusercontent.com/javeed-321/documentationai-portal/main/images/om-plus-dm/destinations/add-new-destination-details.png" alt="Add New Destination dialog: protocol, address, port and delivery options" width="284" height="311" />
+  </Step>
+  <Step title="Click Finish" icon="check">
+    Click "Finish" to create the destination.
+  </Step>
+</Steps>
+
+<Callout kind="info">
+Due to the "Destination Name" being the key to the record, it is not possible to rename a destination. If you change the name and save, you will create a new destination. You will have to create the new destination and save it, then delete the old destination. For this reason, OM Plus will not permit classes or destinations to have the same name.
+</Callout>
+
+<Callout kind="tip">
+i-Sat is a solution for delivering print jobs to remote sites where reliable connections to the printers cannot be guaranteed. When Poll Mode is enabled, a properly configured i-Sat server will connect to the OM Plus DM server to retrieve the printer configuration and any jobs to be delivered to that printer. Since the remote server is initiating the connection, this often is a more reliable solution for remote sites.
+</Callout>
+
+### Delete
+
+Right click on the name of the destination to be deleted, then select "Delete". A window will appear to confirm the deletion.
+
+### Clone
+
+A destination can be copied or cloned. To do so, right click on the name of the destination, then select "Clone". A window will appear asking for the name of the new destination.
+
+### Edit
+
+Select the destination from the left hand side. The settings from that destination will load in the main panel.
+
+## Save Host
+
+To aid in defining destinations quickly and accurately in a distributed environment, OM Plus can save destinations to multiple OM Plus servers at the same time. To do so, select multiple hosts from the "Hosts" drop down menu in the upper left corner. Right click on each host name in the destination selection list and make sure "Save Host" is checked. The hostname will turn green. Now, any destinations created or edited here will be saved to all Save Hosts.
+
+## Destination Categories
+
+When adding a destination, select one of the four categories that best matches the device.
+
+| Field | Description |
+| --- | --- |
+| Network Printer | A destination that requires access to a network in order to function. |
+| Local Printer | A locally connected device, for example a parallel/serial printer or native spooler. |
+| Server to Server | Delivery to another server, for example an OM Plus Server or other Print Server. |
+| Electronic Delivery | Non-print delivery, for example e-mail or fax. |
+
+The device configuration fields and available protocols or types change depending on the category you choose. For full details of each protocol and mode, including Network Destination Modes such as Raw TCP, see [Device Modes](/om-plus-dm/destinations/device-modes).
